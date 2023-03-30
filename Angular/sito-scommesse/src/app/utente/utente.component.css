@@ -1,3 +1,62 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+/* Set the background color to green */
+body {
+  background-color: #00b300;
+}
+
+/* Set the font family to a sporty font */
+body {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+/* Set the text color to white */
+h1, h2, h3, p {
+  color: #fff;
+}
+
+/* Style the navigation bar */
+mat-toolbar {
+  background-color: #fff;
+  color: #00b300;
+}
+
+/* Style the user information card */
+.example-card {
+  background-color: #fff;
+  color: #00b300;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the edit button */
+button {
+  background-color: #fff;
+  color: #00b300;
+  border-radius: 25px;
+  padding: 10px 20px;
+  border: 2px solid #00b300;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style the favorite and share buttons */
+mat-icon-button {
+  color: #fff;
+}
+
+.favorite-icon {
+  color: #ff9800;
+}
+
+.favorite-border-icon {
+  color: #fff;
+}
+
+/* Style the logout button */
+button[mat-menu-item] {
+  color: #fff;
+}
