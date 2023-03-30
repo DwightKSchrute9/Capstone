@@ -1,1 +1,58 @@
-<p>Welcome to the home page!</p>
+<mat-toolbar color="primary">
+  <span>My App</span>
+</mat-toolbar>
+
+<mat-card class="example-card">
+  <img mat-card-image src="https://via.placeholder.com/300x100" alt="Banner">
+  <mat-card-content>
+    <p>Descrizione banner</p>
+  </mat-card-content>
+</mat-card>
+
+<div class="example-grid">
+  <mat-grid-list cols="3" rowHeight="250px">
+    <mat-grid-tile *ngFor="let item of items" [colspan]="item.cols" [rowspan]="item.rows">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{item.image}}" alt="{{item.title}}">
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Partite di oggi</mat-card-title>
+  </mat-card-header>
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="homeTeam">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Squadra di casa </mat-header-cell>
+      <mat-cell *matCellDef="let match"> {{match.homeTeam}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="awayTeam">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Squadra ospite </mat-header-cell>
+      <mat-cell *matCellDef="let match"> {{match.awayTeam}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Data </mat-header-cell>
+      <mat-cell *matCellDef="let match"> {{match.date | date:'short'}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Ora </mat-header-cell>
+      <mat-cell *matCellDef="let match"> {{match.time}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="competition">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Competizione </mat-header-cell>
+      <mat-cell *matCellDef="let match"> {{match.competition}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-card>
