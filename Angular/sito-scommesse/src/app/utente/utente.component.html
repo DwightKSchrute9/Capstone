@@ -1,17 +1,58 @@
-<div>
-  <label>Nome</label>
-  <input [(ngModel)]="utente.name" name="name" type="text">
-</div>
-<div>
-  <label>Email</label>
-  <input [(ngModel)]="utente.email" name="email" type="email">
-</div>
-<div>
-  <label>Password</label>
-  <input [(ngModel)]="utente.password" name="password" type="password">
-</div>
-<div>
-  <label>Carta di credito</label>
-  <input [(ngModel)]="utente.creditCard" name="creditCard" type="text">
-</div>
-<button (click)="saveUser()">Salva</button>
+<mat-toolbar>
+  <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle navigation">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button aria-label="Favorite" (click)="onFavoriteClick()">
+    <mat-icon [ngClass]="{ 'favorite-icon': isFavorite, 'favorite-border-icon': !isFavorite }">favorite</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="Share" (click)="onShareClick()">
+    <mat-icon>share</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-sidenav-container" #sidenavContainer>
+
+  <mat-sidenav #sidenav mode="push">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menuItems">
+        <a mat-button [routerLink]="item.link" routerLinkActive="active">{{ item.text }}</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="example-header">
+
+      <h2 class="example-app-name">My App</h2>
+    </div>
+
+    <div class="example-user-info">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Utente</mat-card-title>
+          <mat-card-subtitle>Email: {{ user.email }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Credit Card: {{ user.creditCard }}</p>
+          <p>Password: {{ user.password }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="editUserInfo()">Modifica Informazioni</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item (click)="onLogoutClick()">Logout</button>
+</mat-menu>
