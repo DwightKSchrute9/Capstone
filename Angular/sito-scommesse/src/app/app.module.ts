@@ -15,9 +15,12 @@ import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
+import { AnimazioneComponent } from './animazione/animazione.component';
 
 
 const appRoutes: Routes = [
+
+
   { path: 'utente', component: UtenteComponent },
   { path: 'home', component: HomeComponent },
   { path: 'bet', component: BetComponent },
@@ -27,9 +30,11 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    AnimazioneComponent,
     AppComponent,
     UtenteComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
 
   imports: [
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+
 
   ],
   providers: [],

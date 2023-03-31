@@ -1,0 +1,30 @@
+/* CSS */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+#logo-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  animation: walk 2s ease-in-out;
+}
+
+@keyframes walk {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
