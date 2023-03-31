@@ -2,27 +2,33 @@
   <mat-card>
     <mat-card-title>Login</mat-card-title>
     <mat-card-content>
-      <form class="example-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nome utente o email" [(ngModel)]="user.username" name="username" required>
-          <mat-error *ngIf="username.invalid">Campo obbligatorio</mat-error>
+          <input matInput placeholder="Nome utente o email" formControlName="username" required>
+          <mat-error *ngIf="loginForm.get('username')?.invalid">Campo obbligatorio</mat-error>
           <mat-label>Nome utente o email</mat-label>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" [(ngModel)]="user.password" name="password" type="password" required>
-          <mat-error *ngIf="password.invalid">Campo obbligatorio</mat-error>
+          <input matInput placeholder="Password" formControlName="password" type="password" required>
+          <mat-error *ngIf="loginForm.get('password')?.invalid">Campo obbligatorio</mat-error>
           <mat-label>Password</mat-label>
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="submit">Accedi</button>
 
-
         <div class="signup-link">
           <span>Non sei ancora registrato?</span>
           <a routerLink="/signup">Registrati</a>
+        </div>
+
+        <!-- Mostra l'errore se presente -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{errorMessage}}
         </div>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+
+

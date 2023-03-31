@@ -18,6 +18,7 @@ import {MatTableModule} from '@angular/material/table';
 import { AnimazioneComponent } from './animazione/animazione.component';
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -52,7 +53,9 @@ const appRoutes: Routes = [
     MatCardModule,
     MatGridListModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
+    FormsModule, // Aggiungi FormsModule
 
 
   ],
