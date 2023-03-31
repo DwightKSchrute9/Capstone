@@ -19,16 +19,18 @@ import { AnimazioneComponent } from './animazione/animazione.component';
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
 
-
+  { path: '', redirectTo: '/animazione', pathMatch: 'full' },
   { path: 'utente', component: UtenteComponent },
   { path: 'home', component: HomeComponent },
   { path: 'bet', component: BetComponent },
   { path: 'matches', component: MatchesComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'animazione', component: AnimazioneComponent },
+
 ];
 
 @NgModule({
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     FormsModule,
     FormsModule, // Aggiungi FormsModule
+    ReactiveFormsModule,
 
 
   ],
