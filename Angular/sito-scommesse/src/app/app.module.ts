@@ -25,11 +25,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
 
   { path: '', redirectTo: '/animazione', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'utente', component: UtenteComponent },
   { path: 'home', component: HomeComponent },
   { path: 'bet', component: BetComponent },
   { path: 'matches', component: MatchesComponent },
-  { path: 'animazione', component: AnimazioneComponent },
+  { path: 'animazione', component: AnimazioneComponent }
 
 ];
 
