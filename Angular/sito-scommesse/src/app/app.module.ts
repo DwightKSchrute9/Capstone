@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import { AnimazioneComponent } from './animazione/animazione.component';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 const appRoutes: Routes = [
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
     AppComponent,
     UtenteComponent,
     HomeComponent,
+    LoginComponent,
 
   ],
 
@@ -49,6 +52,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatGridListModule,
     MatTableModule,
+    MatFormFieldModule
 
 
   ],

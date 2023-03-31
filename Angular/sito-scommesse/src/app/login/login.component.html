@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nome utente o email" [(ngModel)]="user.username" name="username" required>
+          <mat-error *ngIf="username.invalid">Campo obbligatorio</mat-error>
+          <mat-label>Nome utente o email</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" [(ngModel)]="user.password" name="password" type="password" required>
+          <mat-error *ngIf="password.invalid">Campo obbligatorio</mat-error>
+          <mat-label>Password</mat-label>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Accedi</button>
+
+
+        <div class="signup-link">
+          <span>Non sei ancora registrato?</span>
+          <a routerLink="/signup">Registrati</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
