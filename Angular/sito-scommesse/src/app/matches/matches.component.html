@@ -1,1 +1,24 @@
-<p>matches works!</p>
+
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Market</th>
+          <th>Selection</th>
+          <th>Odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let quote of quotes">
+          <td>{{ quote.event }}</td>
+          <td>{{ quote.market }}</td>
+          <td>{{ quote.selection }}</td>
+          <td>{{ quote.odds }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+

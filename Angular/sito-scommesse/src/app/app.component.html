@@ -7,12 +7,22 @@
   <title>Document</title>
 </head>
 <body>
-  <nav>
-    <a routerLink="/user">Utente</a>
-  </nav>
-  <animazione-component></animazione-component>
-  <router-outlet></router-outlet>
+  <header>
+    <app-navbar></app-navbar>
 
+  </header>
+
+  <main>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+
+  <app-night-mode-toggle></app-night-mode-toggle>
 
 </body>
 </html>

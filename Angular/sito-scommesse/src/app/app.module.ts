@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { UtenteComponent } from './utente/utente.component';
 import { HomeComponent } from './home/home.component';
 import { BetComponent } from './bet/bet.component';
@@ -20,14 +21,17 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NighModeToogleComponent } from './night-mode-toogle/nigh-mode-toogle.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const appRoutes: Routes = [
 
   { path: '', redirectTo: '/animazione', pathMatch: 'full' },
+  { path: 'App', component: AppComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'utente', component: UtenteComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'bet', component: BetComponent },
   { path: 'matches', component: MatchesComponent },
   { path: 'animazione', component: AnimazioneComponent }
@@ -37,10 +41,14 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AnimazioneComponent,
+    LoginComponent,
     AppComponent,
     UtenteComponent,
     HomeComponent,
-    LoginComponent,
+    NavbarComponent,
+    NighModeToogleComponent,
+    FooterComponent,
+
 
   ],
 
@@ -60,6 +68,7 @@ const appRoutes: Routes = [
     FormsModule,
     FormsModule, // Aggiungi FormsModule
     ReactiveFormsModule,
+
 
 
   ],
