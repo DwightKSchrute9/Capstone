@@ -65,5 +65,25 @@ public class Match {
 		this.awayScore = awayScore;
 	}
 
+	public Object getTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTime(Object time) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getStadium() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setStadium(Object stadium) {
+		// TODO Auto-generated method stub
+		
+	}
+
     // getters e setters
 }

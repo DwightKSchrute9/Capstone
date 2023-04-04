@@ -49,6 +49,17 @@ public class BetController {
         List<Bet> bets = betService.getBetsByUserId(userId);
         return new ResponseEntity<>(bets, HttpStatus.OK);
     }
+    
+    //per visualizzare i dettagli di una scommessa specifica, identificata dall'id.
+    @GetMapping("/bets/{id}")
+    public ResponseEntity<Bet> getBet(@PathVariable(value = "id") Long betId) {
+        java.util.Optional<Bet> optionalBet = betRepository.findById(betId);
+        if (optionalBet.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(optionalBet.get());
+    }
+
 
     
     // altri metodi del controller per le operazioni CRUD su Bet
