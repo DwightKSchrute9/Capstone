@@ -23,7 +23,11 @@ public class User {
 
     private String name;
     
+    private String surname;
+    
     private String creditCard;
+
+    private String nomeUtente;
 
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
@@ -68,4 +72,20 @@ public class User {
     public void setRole(UserRole role) {
         this.role = role;
     }
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getNomeUtente() {
+		return nomeUtente;
+	}
+
+	public void setNomeUtente(String nomeUtente) {
+		this.nomeUtente = nomeUtente;
+	}
 }
