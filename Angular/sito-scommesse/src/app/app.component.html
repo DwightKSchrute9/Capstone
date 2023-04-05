@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-    <app-navbar></app-navbar>
+<header *ngIf="router.url !== '/animazione'">
+  <app-navbar></app-navbar>
 
-  </header>
+</header>
 
-  <main>
-    <div class="container">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+<main>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
 
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+<footer>
+  <app-footer></app-footer>
+</footer>
 
-  <app-night-mode-toggle></app-night-mode-toggle>
-
-</body>
-</html>
+<!-- <app-night-mode-toggle></app-night-mode-toggle> -->

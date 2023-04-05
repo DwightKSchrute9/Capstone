@@ -1,23 +1,22 @@
 
 
-import { Component, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
 
 
-  template: `
-  <nav>
-    <a routerLink="/utente">Utente</a>
-  </nav>
-  <router-outlet></router-outlet>
-`,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isDarkMode: boolean = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, public router: Router) {}
+
+  ngOnInit(): void {
+  }
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;

@@ -25,6 +25,7 @@ import { NighModeToogleComponent } from './night-mode-toogle/nigh-mode-toogle.co
 import { FooterComponent } from './footer/footer.component';
 
 
+
 const appRoutes: Routes = [
 
   { path: '', redirectTo: '/animazione', pathMatch: 'full' },
