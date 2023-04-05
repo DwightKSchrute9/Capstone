@@ -36,7 +36,7 @@ public class User {
 
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private UserERole role;
     
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Bet> bets = new ArrayList<>();
@@ -73,11 +73,11 @@ public class User {
 		this.creditCard = creditCard;
 	}
 
-    public UserRole getRole() {
+    public UserERole getRole() {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(UserERole role) {
         this.role = role;
     }
 
@@ -97,3 +97,8 @@ public class User {
 		this.nomeUtente = nomeUtente;
 	}
 }
+
+
+
+
+
