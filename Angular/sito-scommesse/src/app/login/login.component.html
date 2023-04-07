@@ -1,34 +1,28 @@
-<div class="container">
-  <mat-card>
-    <mat-card-title>Login</mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nome utente o email" formControlName="username" required>
-          <mat-error *ngIf="loginForm.get('username')?.invalid">Campo obbligatorio</mat-error>
-          <mat-label>Nome utente o email</mat-label>
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" formControlName="password" type="password" required>
-          <mat-error *ngIf="loginForm.get('password')?.invalid">Campo obbligatorio</mat-error>
-          <mat-label>Password</mat-label>
-        </mat-form-field>
-
-        <button mat-raised-button color="primary" type="submit">Accedi</button>
-
-        <div class="signup-link">
-          <span>Non sei ancora registrato?</span>
-          <a routerLink="/signup">Registrati</a>
-        </div>
-
-        <!-- Mostra l'errore se presente -->
-        <div *ngIf="errorMessage" class="error-message">
-          {{errorMessage}}
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Accedi al tuo account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Accedi</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 

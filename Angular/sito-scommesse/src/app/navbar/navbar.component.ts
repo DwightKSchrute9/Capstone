@@ -6,6 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  isLoginOpen = false;
+
+  onLoginButtonClick() {
+    this.isLoginOpen = true;
+  }
+
+  onCloseLogin() {
+    this.isLoginOpen = false;
+  }
+
   isDarkMode: boolean = false;
 
   toggleDarkMode(): void {
