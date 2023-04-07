@@ -49,6 +49,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     NighModeToogleComponent,
     FooterComponent,
+    MatchesComponent
 
 
   ],

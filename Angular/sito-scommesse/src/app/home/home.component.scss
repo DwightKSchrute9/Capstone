@@ -1,0 +1,25 @@
+.container {
+  background-color: #152238; // Sostituisci con il colore di sfondo desiderato
+  color: #fff; // Sostituisci con il colore del testo desiderato
+  padding: 20px;
+
+  h3 {
+    color: #fff;
+  }
+
+  table {
+    th,
+    td {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    th {
+      background-color: #0c1d2d;
+    }
+
+    tr:nth-child(even) {
+      background-color: #1e2f44;
+    }
+  }
+}
