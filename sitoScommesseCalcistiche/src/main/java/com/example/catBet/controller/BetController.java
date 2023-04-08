@@ -18,7 +18,7 @@ import com.example.catBet.model.Bet;
 import com.example.catBet.repository.BetRepository;
 import com.example.catBet.service.BetService;
 
-import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
+
 
 @RestController
 @RequestMapping("/api/bets")

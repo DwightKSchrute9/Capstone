@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.SpringBoot_SpringSecurity.payload.ErrorDetails;
+import com.example.catBet.payload.ErrorDetails;
 import com.example.catBet.controller.ResourceNotFoundException;
 
 import java.util.Date;

@@ -24,17 +24,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @Entity
 @Table(name = "roles")
-public class UserRole {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Enumerated(EnumType.STRING)
-	private UserERole roleName;
+	private ERole roleName;
 
-	public void setRoleName(UserERole admin) {
-		// TODO Auto-generated method stub
-		
-	}
 }

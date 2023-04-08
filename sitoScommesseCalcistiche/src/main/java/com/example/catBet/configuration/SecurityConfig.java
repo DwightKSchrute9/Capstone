@@ -19,8 +19,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.SpringBoot_SpringSecurity.security.JwtAuthenticationEntryPoint;
-import com.SpringBoot_SpringSecurity.security.JwtAuthenticationFilter;
+import com.example.catBet.security.JwtAuthenticationEntryPoint;
+import com.example.catBet.security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableMethodSecurity

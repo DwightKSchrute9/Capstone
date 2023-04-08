@@ -1,45 +1,62 @@
 package com.example.catBet.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
+		@UniqueConstraint(columnNames = "email") })
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = true)
-    private String email;
-
-    private String password;
-
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false, unique = true)
+	private String email;
+	
+    @Column(nullable = false, unique = true)
+    private String username;
     
-    private String surname;
-    
-    private String creditCard;
+	@Column(nullable = false)
+	private String password;
+	
+	private String name;
+	
+	private String lastName
+	;
+	private String creditCard;
+	
+    public Long getId() {
+		return id;
+	}
 
-    private String nomeUtente;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private UserERole role;
-    
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Bet> bets = new ArrayList<>();
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getPassword() {
 		return password;
@@ -57,12 +74,12 @@ public class User {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getCreditCard() {
@@ -73,32 +90,52 @@ public class User {
 		this.creditCard = creditCard;
 	}
 
-    public UserERole getRole() {
-        return role;
-    }
-
-    public void setRole(UserERole role) {
-        this.role = role;
-    }
-
-	public String getSurname() {
-		return surname;
+	public boolean isLocked() {
+		return isLocked;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setLocked(boolean isLocked) {
+		this.isLocked = isLocked;
 	}
 
-	public String getNomeUtente() {
-		return nomeUtente;
+	public boolean isExpired() {
+		return isExpired;
 	}
 
-	public void setNomeUtente(String nomeUtente) {
-		this.nomeUtente = nomeUtente;
+	public void setExpired(boolean isExpired) {
+		this.isExpired = isExpired;
 	}
+
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	public List<Bet> getBets() {
+		return bets;
+	}
+
+	public void setBets(List<Bet> bets) {
+		this.bets = bets;
+	}
+
+	private boolean isLocked = false;
+    private boolean isExpired = false;
+    private boolean isEnabled = true;
+
+
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Bet> bets = new ArrayList<>();
+	
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
 }
-
-
-
-
-

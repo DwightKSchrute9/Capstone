@@ -3,7 +3,6 @@ package com.example.catBet.payload;
 
 import java.util.Set;
 
-import com.SpringBoot_SpringSecurity.entity.ERole;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

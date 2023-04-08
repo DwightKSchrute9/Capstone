@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SpringBoot_SpringSecurity.payload.JWTAuthResponse;
-import com.SpringBoot_SpringSecurity.payload.LoginDto;
-import com.SpringBoot_SpringSecurity.payload.RegisterDto;
-import com.SpringBoot_SpringSecurity.service.AuthService;
+import com.example.catBet.payload.JWTAuthResponse;
+import com.example.catBet.payload.LoginDto;
+import com.example.catBet.payload.RegisterDto;
+import com.example.catBet.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")
