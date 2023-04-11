@@ -7,13 +7,25 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   isLoginOpen = false;
+  isRegisterOpen = false;
+
 
   onLoginButtonClick() {
     this.isLoginOpen = true;
+    this.isRegisterOpen = false;
   }
 
   onCloseLogin() {
     this.isLoginOpen = false;
+  }
+
+  onRegisterButtonClick(): void {
+    this.isRegisterOpen = true;
+    this.isLoginOpen = false;
+  }
+
+  onCloseRegister(): void {
+    this.isRegisterOpen = false;
   }
 
   isDarkMode: boolean = false;

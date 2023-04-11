@@ -1,18 +1,16 @@
-
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Component, ViewChild, ElementRef } from '@angular/core';
-
-
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-utente',
   templateUrl: './utente.component.html',
-  styleUrls: ['./utente.component.css']
+  styleUrls: ['./utente.component.scss']
 })
 
 export class UtenteComponent {
-  user = { email: 'example@example.com', creditCard: '1234 5678 9012 3456', password: '********' };
+  user = { email: '', creditCard: '', password: '' };
 
    // Dichiarazione della proprietà isFavorite
    isFavorite: boolean = false;
@@ -26,7 +24,7 @@ export class UtenteComponent {
   @ViewChild('sidenav')
   sidenav!: MatSidenav;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   onFavoriteClick() {
     this.isFavorite = !this.isFavorite;
@@ -43,11 +41,11 @@ export class UtenteComponent {
   onLogoutClick() {
     // ...
   }
+
   toggleSidenav() {
     this.sidenav.toggle();
+  }
 }
-}
-
 
 
 

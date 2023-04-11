@@ -23,6 +23,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NighModeToogleComponent } from './night-mode-toogle/nigh-mode-toogle.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'App', component: AppComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'Registration', component: RegisterComponent },
   { path: 'utente', component: UtenteComponent },
   { path: 'bet', component: BetComponent },
   { path: 'matches', component: MatchesComponent },
@@ -49,7 +52,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     NighModeToogleComponent,
     FooterComponent,
-    MatchesComponent
+    MatchesComponent,
+    RegisterComponent
 
 
   ],
@@ -70,6 +74,7 @@ const appRoutes: Routes = [
     FormsModule,
     FormsModule, // Aggiungi FormsModule
     ReactiveFormsModule,
+    HttpClientModule
 
 
 

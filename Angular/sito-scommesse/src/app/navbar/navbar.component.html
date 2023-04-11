@@ -1,5 +1,6 @@
 
 <app-login *ngIf="isLoginOpen" (close)="onCloseLogin()"></app-login>
+<app-register *ngIf="isRegisterOpen"></app-register>
   <nav class="navbar" [ngClass]="{'navbar-dark bg-dark': isDarkMode, 'navbar-light bg-light': !isDarkMode}">
     <div class="container">
       <a class="navbar-brand" href="#">CatBet</a>
@@ -23,7 +24,7 @@
           </li>
           <li class="nav-item">
            <!--<a class="nav-link" href="#">Register</a>-->
-           <button class="btn btn-sm btn-outline-primary ml-2">REGISTRATI</button>
+           <button class="btn btn-sm btn-outline-primary ml-2" (click)="onRegisterButtonClick()">REGISTRATI</button>
           </li>
           <li class="nav-item">
             <!--<button class="btn btn-sm btn-outline-primary ml-2">Bet Slip</button>-->

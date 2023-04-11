@@ -1,5 +1,5 @@
-
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,21 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username: string | undefined;
-  password: string | undefined;
-  showModal: boolean = false;
+  email!: string;
+  password!: string;
 
-  constructor() {}
+  constructor(private authService: AuthenticationService) { }
 
-  open() {
-    this.showModal = true;
-  }
-
-  close() {
-    this.showModal = false;
-  }
-
-  login() {
-    // gestione del login
+  onSubmit(): void {
+    this.authService.login(this.email, this.password)
+      .subscribe(() => {
+        // redirect to dashboard or home page
+      });
   }
 }
