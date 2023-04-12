@@ -1,10 +1,10 @@
-package com.SpringBoot_SpringSecurity.service;
+package com.Capstone_BET.SpringBoot_SpringSecurity.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.SpringBoot_SpringSecurity.entity.Match;
-import com.SpringBoot_SpringSecurity.repository.MatchRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Match;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.MatchRepository;
 
 @Service
 public class MatchService {

@@ -1,8 +1,8 @@
-package com.SpringBoot_SpringSecurity.payload;
+package com.Capstone_BET.SpringBoot_SpringSecurity.payload;
 
 import java.util.Set;
 
-import com.SpringBoot_SpringSecurity.entity.ERole;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.ERole;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

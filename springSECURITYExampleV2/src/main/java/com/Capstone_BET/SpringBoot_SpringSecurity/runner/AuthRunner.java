@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.runner;
+package com.Capstone_BET.SpringBoot_SpringSecurity.runner;
 
 import java.util.HashSet;
 import java.util.List;
@@ -11,12 +11,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.SpringBoot_SpringSecurity.entity.ERole;
-import com.SpringBoot_SpringSecurity.entity.Role;
-import com.SpringBoot_SpringSecurity.payload.RegisterDto;
-import com.SpringBoot_SpringSecurity.repository.RoleRepository;
-import com.SpringBoot_SpringSecurity.repository.UserRepository;
-import com.SpringBoot_SpringSecurity.service.AuthService;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.ERole;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Role;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.RegisterDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.RoleRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.UserRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.service.AuthService;
 
 
 @Component

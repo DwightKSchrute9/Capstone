@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.payload;
+package com.Capstone_BET.SpringBoot_SpringSecurity.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

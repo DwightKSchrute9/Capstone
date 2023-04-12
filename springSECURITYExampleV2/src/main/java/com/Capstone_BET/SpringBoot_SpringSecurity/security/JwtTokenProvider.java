@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.security;
+package com.Capstone_BET.SpringBoot_SpringSecurity.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.SpringBoot_SpringSecurity.exception.MyAPIException;
+import com.Capstone_BET.SpringBoot_SpringSecurity.exception.MyAPIException;
 
 import java.security.Key;
 import java.util.Date;

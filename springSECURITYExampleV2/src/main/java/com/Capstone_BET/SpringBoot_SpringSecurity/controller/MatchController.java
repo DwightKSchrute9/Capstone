@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.controller;
+package com.Capstone_BET.SpringBoot_SpringSecurity.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SpringBoot_SpringSecurity.entity.Match;
-import com.SpringBoot_SpringSecurity.exception.ResourceNotFoundException;
-import com.SpringBoot_SpringSecurity.repository.MatchRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Match;
+import com.Capstone_BET.SpringBoot_SpringSecurity.exception.ResourceNotFoundException;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.MatchRepository;
 
 
 

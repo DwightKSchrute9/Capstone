@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.configuration;
+package com.Capstone_BET.SpringBoot_SpringSecurity.configuration;
 
 
 import org.springframework.context.annotation.Bean;
@@ -19,8 +19,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.SpringBoot_SpringSecurity.security.JwtAuthenticationEntryPoint;
-import com.SpringBoot_SpringSecurity.security.JwtAuthenticationFilter;
+import com.Capstone_BET.SpringBoot_SpringSecurity.security.JwtAuthenticationEntryPoint;
+import com.Capstone_BET.SpringBoot_SpringSecurity.security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableMethodSecurity
@@ -52,10 +52,11 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
+    	System.out.println("passo da qua");
+ 
     	http.cors().and().csrf().disable()
         .authorizeHttpRequests((authorize) -> authorize
-        		.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+        		.requestMatchers("/api/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception

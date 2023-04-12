@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.security;
+package com.Capstone_BET.SpringBoot_SpringSecurity.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.SpringBoot_SpringSecurity.entity.User;
-import com.SpringBoot_SpringSecurity.repository.UserRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.User;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.UserRepository;
 
 import java.util.Set;
 import java.util.stream.Collectors;

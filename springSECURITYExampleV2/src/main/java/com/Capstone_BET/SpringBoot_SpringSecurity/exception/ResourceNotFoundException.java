@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.exception;
+package com.Capstone_BET.SpringBoot_SpringSecurity.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

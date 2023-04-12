@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.service;
+package com.Capstone_BET.SpringBoot_SpringSecurity.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import com.SpringBoot_SpringSecurity.entity.Bet;
-import com.SpringBoot_SpringSecurity.repository.BetRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Bet;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.BetRepository;
 
 
 

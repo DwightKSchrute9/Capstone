@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.entity;
+package com.Capstone_BET.SpringBoot_SpringSecurity.entity;
 
 import java.math.BigDecimal;
 

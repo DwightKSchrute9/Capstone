@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.exception;
+package com.Capstone_BET.SpringBoot_SpringSecurity.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.SpringBoot_SpringSecurity.payload.ErrorDetails;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.ErrorDetails;
 
 import java.util.Date;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.security;
+package com.Capstone_BET.SpringBoot_SpringSecurity.security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

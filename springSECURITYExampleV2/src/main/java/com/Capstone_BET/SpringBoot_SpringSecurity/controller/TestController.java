@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.controller;
+package com.Capstone_BET.SpringBoot_SpringSecurity.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

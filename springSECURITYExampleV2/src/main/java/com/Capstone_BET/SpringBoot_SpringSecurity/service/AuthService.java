@@ -1,7 +1,7 @@
-package com.SpringBoot_SpringSecurity.service;
+package com.Capstone_BET.SpringBoot_SpringSecurity.service;
 
-import com.SpringBoot_SpringSecurity.payload.LoginDto;
-import com.SpringBoot_SpringSecurity.payload.RegisterDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.LoginDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.RegisterDto;
 
 public interface AuthService {
     

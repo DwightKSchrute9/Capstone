@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.entity;
+package com.Capstone_BET.SpringBoot_SpringSecurity.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    @Column(nullable = false, unique = true)
     private String name;
 	private String lastName;
 	private String creditCard;

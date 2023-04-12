@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.service;
+package com.Capstone_BET.SpringBoot_SpringSecurity.service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,15 +11,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.SpringBoot_SpringSecurity.entity.ERole;
-import com.SpringBoot_SpringSecurity.entity.Role;
-import com.SpringBoot_SpringSecurity.entity.User;
-import com.SpringBoot_SpringSecurity.exception.MyAPIException;
-import com.SpringBoot_SpringSecurity.payload.LoginDto;
-import com.SpringBoot_SpringSecurity.payload.RegisterDto;
-import com.SpringBoot_SpringSecurity.repository.RoleRepository;
-import com.SpringBoot_SpringSecurity.repository.UserRepository;
-import com.SpringBoot_SpringSecurity.security.JwtTokenProvider;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.ERole;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Role;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.User;
+import com.Capstone_BET.SpringBoot_SpringSecurity.exception.MyAPIException;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.LoginDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.RegisterDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.RoleRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.UserRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.security.JwtTokenProvider;
 
 @Service
 public class AuthServiceImpl implements AuthService {

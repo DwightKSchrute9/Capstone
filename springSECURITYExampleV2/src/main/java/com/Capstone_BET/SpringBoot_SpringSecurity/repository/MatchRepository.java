@@ -1,10 +1,10 @@
-package com.SpringBoot_SpringSecurity.repository;
+package com.Capstone_BET.SpringBoot_SpringSecurity.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.SpringBoot_SpringSecurity.entity.Match;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Match;
 
 public interface MatchRepository extends JpaRepository<Match, Long> {
 

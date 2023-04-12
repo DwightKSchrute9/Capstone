@@ -1,20 +1,21 @@
-package com.SpringBoot_SpringSecurity.controller;
+package com.Capstone_BET.SpringBoot_SpringSecurity.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SpringBoot_SpringSecurity.payload.JWTAuthResponse;
-import com.SpringBoot_SpringSecurity.payload.LoginDto;
-import com.SpringBoot_SpringSecurity.payload.RegisterDto;
-import com.SpringBoot_SpringSecurity.service.AuthService;
-
-@RestController
-@RequestMapping("/api/auth")
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.JWTAuthResponse;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.LoginDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.payload.RegisterDto;
+import com.Capstone_BET.SpringBoot_SpringSecurity.service.AuthService;
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RestController()
+@RequestMapping("/api/auth/")
 public class AuthController {
 
     private AuthService authService;
@@ -39,7 +40,8 @@ public class AuthController {
     // Build Register REST API
     @PostMapping(value = {"/register", "/signup"})
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto){
-        String response = authService.register(registerDto);
+        System.out.println("siamo qui");
+    	String response = authService.register(registerDto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

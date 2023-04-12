@@ -1,4 +1,4 @@
-package com.SpringBoot_SpringSecurity.controller;
+package com.Capstone_BET.SpringBoot_SpringSecurity.controller;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SpringBoot_SpringSecurity.entity.Bet;
-import com.SpringBoot_SpringSecurity.repository.BetRepository;
-import com.SpringBoot_SpringSecurity.service.BetService;
+import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Bet;
+import com.Capstone_BET.SpringBoot_SpringSecurity.repository.BetRepository;
+import com.Capstone_BET.SpringBoot_SpringSecurity.service.BetService;
 
 
 
