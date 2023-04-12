@@ -15,7 +15,21 @@ export class LoginComponent {
   onSubmit(): void {
     this.authService.login(this.email, this.password)
       .subscribe(() => {
+        
         // redirect to dashboard or home page
       });
+  }
+}
+/////////////
+onSubmit() {
+  // inserisci qui il codice per effettuare il login
+  // ...
+
+  if (loginSuccesso) {
+    // naviga all'URL "/utente"
+    this.router.navigate(['/utente']);
+  } else {
+    // visualizza un messaggio di errore
+    this.mostraMessaggioErrore();
   }
 }

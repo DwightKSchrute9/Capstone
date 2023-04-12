@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@angular/language-service": "^15.2.5"
+  }
+}

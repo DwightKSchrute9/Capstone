@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.SpringBoot_SpringSecurity.entity.Role;
+
 import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +14,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 
 @Setter
 @Getter
@@ -26,23 +27,50 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@Column(nullable = false, unique = true)
+	private String username;
+
 	@Column(nullable = false, unique = true)
 	private String email;
-	
-    @Column(nullable = false, unique = true)
-    private String username;
-    
+
 	@Column(nullable = false)
 	private String password;
-	
+
 	private String name;
-	
-	private String lastName
-	;
+	private String lastName;
 	private String creditCard;
+
+	private boolean isLocked = false;
+	private boolean isExpired = false;
+	private boolean isEnabled = true;
+
+	// User roles in DB
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_roles",
+		joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+	private Set<Role> roles = new HashSet<>();
 	
-    public Long getId() {
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+
+	// Bets
+	private List<Bet> bets = new ArrayList<>();
+
+//	public User(String username, String email, String password, String name, String lastName, String creditCard, Boolean isLocked, Boolean isExpired, Boolean isEnabled) {
+//		this.username = username;
+//		this.email = email;
+//		this.password = password;
+//		this.name = name;
+//		this.lastName = lastName;
+//		this.creditCard = creditCard;
+//		this.isLocked = isLocked;
+//		this.isExpired = isExpired;
+//		this.isEnabled = isEnabled;
+//		
+//	}
+
+	public Long getId() {
 		return id;
 	}
 
@@ -122,20 +150,20 @@ public class User {
 		this.bets = bets;
 	}
 
-	private boolean isLocked = false;
-    private boolean isExpired = false;
-    private boolean isEnabled = true;
+	public Set<Role> getRoles() {
+		return roles;
+	}
 
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
+	public String getUsername() {
+		return username;
+	}
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Bet> bets = new ArrayList<>();
-	
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
-    )
-    private Set<Role> roles = new HashSet<>();
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 }

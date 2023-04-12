@@ -38,6 +38,7 @@ public class BetController {
     @GetMapping("/bets")
     public ResponseEntity<List<Bet>> getAllBets() {
         BetController betService = null;
+		@SuppressWarnings("unchecked")
 		List<Bet> bets = (List<Bet>) betService.getAllBets();
         return new ResponseEntity<>(bets, HttpStatus.OK);
     }

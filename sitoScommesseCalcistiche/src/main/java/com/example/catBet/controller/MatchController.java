@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.catBet.exception.ResourceNotFoundException;
 import com.example.catBet.model.Match;
 import com.example.catBet.repository.MatchRepository;
 
@@ -55,7 +56,7 @@ public class MatchController {
     @PutMapping("/matches/{id}")
     public ResponseEntity<Match> updateMatch(@PathVariable(value = "id") Long matchId, 
     		@RequestBody Match matchDetails) throws ResourceNotFoundException {
-        Match match = matchRepository.findById(matchId).orElseThrow(() -> new ResourceNotFoundException("Match not found for this id :: " + matchId));
+        Match match = matchRepository.findById(matchId).orElseThrow(() -> new ResourceNotFoundException("Match not found for this id :: " + matchId, null, matchId));
 
         match.setHomeTeam(matchDetails.getHomeTeam());
         match.setAwayTeam(matchDetails.getAwayTeam());
@@ -70,7 +71,7 @@ public class MatchController {
    //Metodo di cancellazione di una partita
     @DeleteMapping("/matches/{id}")
     public Map<String, Boolean> deleteMatch(@PathVariable(value = "id") Long matchId) throws ResourceNotFoundException {
-        Match match = matchRepository.findById(matchId).orElseThrow(() -> new ResourceNotFoundException("Match not found for this id :: " + matchId));
+        Match match = matchRepository.findById(matchId).orElseThrow(() -> new ResourceNotFoundException("Match not found for this id :: " + matchId, null, matchId));
 
         matchRepository.delete(match);
         Map<String, Boolean> response = new HashMap<>();
