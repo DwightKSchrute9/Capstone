@@ -8,7 +8,7 @@ import { AuthenticationService } from '../auth.service';
 })
 export class RegisterComponent {
   name: string = '';
-  surname: string = '';
+  username: string = '';
   email: string = '';
   password: string = '';
   creditCardNumber: string = '';
@@ -18,10 +18,10 @@ export class RegisterComponent {
 
   onSubmit(): void {
     this.isSubmitting = true;
-    this.authService.register(this.name, this.surname, this.email, this.password, this.creditCardNumber)
+    this.authService.register(this.name, this.username, this.email, this.password, this.creditCardNumber)
       .subscribe(() => {
         // redirect to login page or show success message
-        this.isSubmitting = false;
+        this.isSubmitting = true;
       }, (error) => {
         console.log(error);
         this.isSubmitting = false;

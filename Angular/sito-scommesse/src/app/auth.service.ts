@@ -33,9 +33,9 @@ export class AuthenticationService {
     return this.loggedIn.asObservable();
   }
 
-  register(name: string, surname: string, email: string, password: string, creditCard: string): Observable<any> {
-    const url = `${this.API_URL}/register`;
-    const data = { name, surname, email, password, creditCard };
+  register(name: string, username: string, email: string, password: string, creditCard: string): Observable<any> {
+    const url = `${this.API_URL}/auth/register`;
+    const data = { name, username: username, email, password, creditCard };
     return this.http.post(url, data);
   }
   getUserData(): Observable<any> {
