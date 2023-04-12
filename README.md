@@ -15,7 +15,7 @@ Tecnologie utilizzate
 
     Angular per la parte front-end
     Spring Boot per la parte back-end
-    MongoDB per il database
+    PostgreSQL per il database
 
 Getting started
 
