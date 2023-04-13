@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,27 +10,35 @@ import { AuthenticationService } from '../auth.service';
 export class LoginComponent {
   email!: string;
   password!: string;
+  errorMessage: string = '';
+  router: any;
 
   constructor(private authService: AuthenticationService) { }
 
   onSubmit(): void {
     this.authService.login(this.email, this.password)
-      .subscribe(() => {
-        
-        // redirect to dashboard or home page
-      });
+      .subscribe(
+        (login) => {
+          if (login) {
+            console.log(login);
+            // naviga all'URL "/utente"
+            this.router.navigate(['/utente']);
+          } else {
+            // visualizza un messaggio di errore
+            this.errorMessage = 'Credenziali non valide.';
+          }
+        },
+        (error) => {
+          // gestisci l'errore
+          this.errorMessage = 'Si è verificato un errore durante il login.';
+          console.error(error);
+        }
+      );
   }
 }
-/////////////
-onSubmit() {
-  // inserisci qui il codice per effettuare il login
-  // ...
 
-  if (loginSuccesso) {
-    // naviga all'URL "/utente"
-    this.router.navigate(['/utente']);
-  } else {
-    // visualizza un messaggio di errore
-    this.mostraMessaggioErrore();
-  }
-}
+
+
+
+
+
