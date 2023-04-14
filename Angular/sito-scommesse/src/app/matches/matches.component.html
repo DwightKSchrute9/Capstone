@@ -10,15 +10,15 @@
       </tr>
     </thead>
 
-      <tbody>
-        <tr *ngFor="let quote of matches">
-          <td>{{ quote.id }}</td>
-          <td>{{ quote.date }}</td>
-          <td>{{ quote.homeTeam }}</td>
-          <td>{{ quote.awayTeam }}</td>
-          <td>{{ quote.stadium }}</td>
-        </tr>
-      </tbody>
+    <tbody>
+      <tr *ngFor="let match of matches">
+        <td>{{ match.id }}</td>
+        <td>{{ match.date }}</td>
+        <td>{{ match.homeTeam }}</td>
+        <td>{{ match.awayTeam }}</td>
+        <td>{{ match.stadium }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 

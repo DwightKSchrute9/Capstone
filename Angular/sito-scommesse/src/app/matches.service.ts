@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Match } from './matches/matches.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchesService {
-  private matchesUrl = 'http://localhost:3000/api/partite'; // Inserisci l'URL corretto per le tue API
+  private apiUrl = 'http://localhost:8080/api/partite';
 
   constructor(private http: HttpClient) { }
 
-  getMatches(): Observable<any> {
-    return this.http.get<any>(this.matchesUrl);
+  getMatches(): Observable<Match[]> {
+    return this.http.get<Match[]>(this.apiUrl);
   }
 }

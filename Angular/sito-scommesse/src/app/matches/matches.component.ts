@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Match } from '../matches/matches.model';
 import { MatchesService } from '../matches.service';
 
 @Component({
@@ -7,13 +8,7 @@ import { MatchesService } from '../matches.service';
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent implements OnInit {
-  matches: any[] = [];
-
-  id: number | undefined;
-  date!: Date;
-  homeTeam!: string;
-  awayTeam!: string;
-  stadium!: string;
+  matches: Match[] = [];
 
   constructor(private matchesService: MatchesService) { }
 
