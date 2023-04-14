@@ -15,7 +15,7 @@ import com.Capstone_BET.SpringBoot_SpringSecurity.payload.RegisterDto;
 import com.Capstone_BET.SpringBoot_SpringSecurity.service.AuthService;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController()
-@RequestMapping("/api/auth/")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private AuthService authService;

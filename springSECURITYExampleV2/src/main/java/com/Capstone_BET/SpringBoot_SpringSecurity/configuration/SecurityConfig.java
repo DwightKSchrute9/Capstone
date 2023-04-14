@@ -55,7 +55,7 @@ public class SecurityConfig {
     	System.out.println("passo da qua");
  
     	http.cors().and().csrf().disable()
-        .authorizeHttpRequests((authorize) -> authorize
+        .authorizeHttpRequests((authorize) -> authorize	
         		.requestMatchers("/api/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated())
