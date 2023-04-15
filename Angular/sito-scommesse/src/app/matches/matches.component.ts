@@ -12,6 +12,12 @@ export class MatchesComponent implements OnInit {
 
   constructor(private matchesService: MatchesService) { }
 
+ // addToCart(match: Match): void {
+  //  console.log(`Aggiunto al carrello: ${match.homeTeam} - ${match.awayTeam}`);
+    // aggiungi la logica per aggiungere le quote al carrello qui
+ // }
+
+
   ngOnInit(): void {
     this.matchesService.getMatches()
       .subscribe((matches) => {

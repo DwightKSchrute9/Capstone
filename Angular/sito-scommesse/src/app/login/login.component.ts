@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email!: string;
+  username!: string;
   password!: string;
   errorMessage: string = '';
   router: any;
@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(private authService: AuthenticationService) { }
 
   onSubmit(): void {
-    this.authService.login(this.email, this.password)
+    this.authService.login(this.username, this.password)
       .subscribe(
         (login) => {
           if (login) {

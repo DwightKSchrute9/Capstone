@@ -14,9 +14,9 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
-    const url = `${this.API_URL}/login`;
-    const data = { email, password };
+  login(username: string, password: string): Observable<any> {
+    const url = `${this.API_URL}/auth/login`;
+    const data = { username, password };
     return this.http.post(url, data)
       .pipe(
         tap(() => {

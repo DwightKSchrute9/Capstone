@@ -7,7 +7,7 @@ import { Match } from './matches/matches.model';
   providedIn: 'root'
 })
 export class MatchesService {
-  private apiUrl = 'http://localhost:8080/api/partite';
+  private apiUrl = 'http://localhost:8080/api/matches/';
 
   constructor(private http: HttpClient) { }
 
