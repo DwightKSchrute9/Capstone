@@ -1,0 +1,49 @@
+.aside {
+  width: 300px;
+  margin-left: 20px;
+
+  .bet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: #343a40;
+    padding: 0 10px;
+
+    .bet-title {
+      color: #fff;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .bet-icon {
+      display: flex;
+      align-items: center;
+
+      .bet-count {
+        background-color: #fff;
+        color: #343a40;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 50%;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .bet-content {
+    padding: 20px;
+
+    .bet-placeholder {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .bet-selection {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  }
+}

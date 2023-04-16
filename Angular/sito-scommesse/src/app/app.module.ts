@@ -25,6 +25,7 @@ import { NighModeToogleComponent } from './night-mode-toogle/nigh-mode-toogle.co
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AsideComponent } from './aside/aside.component';
 
 
 
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/animazione', pathMatch: 'full' },
   { path: 'App', component: AppComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'aside', component: AsideComponent },
   { path: 'login', component: LoginComponent },
   { path: 'Registration', component: RegisterComponent },
   { path: 'utente', component: UtenteComponent },
@@ -53,7 +55,9 @@ const appRoutes: Routes = [
     NighModeToogleComponent,
     FooterComponent,
     MatchesComponent,
-    RegisterComponent
+    RegisterComponent,
+    AsideComponent,
+    BetComponent
 
 
   ],

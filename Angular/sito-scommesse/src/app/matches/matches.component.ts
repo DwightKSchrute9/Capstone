@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Match } from '../matches/matches.model';
 import { MatchesService } from '../matches.service';
+import { CartService } from '../cart.service';
+import { BetType } from '../bet/betType.enum';
 
 @Component({
   selector: 'app-matches',
@@ -10,13 +12,19 @@ import { MatchesService } from '../matches.service';
 export class MatchesComponent implements OnInit {
   matches: Match[] = [];
 
-  constructor(private matchesService: MatchesService) { }
+  @Output() oddSelected = new EventEmitter<DoubleRange>();
 
- // addToCart(match: Match): void {
-  //  console.log(`Aggiunto al carrello: ${match.homeTeam} - ${match.awayTeam}`);
+  constructor(private matchesService: MatchesService, private cartService: CartService) { }
+
+  addToCart(match: Match, betType: string, odd: DoubleRange): void {
+    console.log(`Aggiunto al carrello: ${match.homeTeam} - ${match.awayTeam} - ${odd}`);
     // aggiungi la logica per aggiungere le quote al carrello qui
- // }
+    this.cartService.addBet(match, betType, odd);
+  }
 
+  onOddClick(odd: DoubleRange) {
+    this.oddSelected.emit(odd);
+  }
 
   ngOnInit(): void {
     this.matchesService.getMatches()
@@ -25,4 +33,7 @@ export class MatchesComponent implements OnInit {
       });
   }
 }
+
+
+
 

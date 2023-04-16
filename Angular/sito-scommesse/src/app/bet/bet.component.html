@@ -1,1 +1,7 @@
-<p>bet works!</p>
+<div class="bet-item" *ngIf="bet">
+  <div class="bet-row" >
+    <div class="bet-team">{{ bet.match.homeTeam }} vs {{ bet.match.awayTeam }}</div>
+    <div class="bet-odd" >Bet on: {{ getBetOn() }}</div>
+    <div class="bet-odd" >Odd: {{ bet.odd }}</div>
+  </div>
+</div>

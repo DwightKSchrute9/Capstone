@@ -8,7 +8,8 @@
         <th>Squadra ospite</th>
         <th>Stadio</th>
         <th>Quota casa</th>
-        <th>Quota ospita</th>
+        <th>Quota ospite</th>
+        <th>Quota pareggio</th>
       </tr>
     </thead>
 
@@ -19,10 +20,9 @@
         <td>{{ match.homeTeam }}</td>
         <td>{{ match.awayTeam }}</td>
         <td>{{ match.stadium }}</td>
-        <td>{{ match.homeOdd}}</td>
-        <td>{{ match.awayOdd }}</td>
-        <!--<td (click)="addToCart(match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
-        <td (click)="addToCart(match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>-->
+        <td (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
+        <td (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
+        <td (click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
       </tr>
     </tbody>
   </table>

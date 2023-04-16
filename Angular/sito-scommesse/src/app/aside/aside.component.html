@@ -1,0 +1,22 @@
+
+
+<aside class="aside">
+  <div *ngFor="let bet of cartService.bets">
+    <app-bet [bet]="bet"></app-bet>
+  </div>
+  <div class="bet-header">
+    <h5 class="bet-title">Schedina</h5>
+    <div class="bet-icon">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="bet-count">{{ betCount }}</span>
+    </div>
+  </div>
+  <div class="bet-content">
+    <p class="bet-placeholder" *ngIf="!isBetSelected">
+      Cliccare su una quota per inserirla nel carrello o inserisci un codice da caricare
+    </p>
+    <p class="bet-selection" *ngIf="isBetSelected">
+      Hai selezionato la quota {{ selectedBet }}. Inserisci l'importo e procedi con la scommessa.
+    </p>
+  </div>
+</aside>

@@ -6,4 +6,6 @@ export interface Match {
   stadium: string;
   homeOdd:DoubleRange;
   awayOdd:DoubleRange;
+  drawOdd:DoubleRange;
+
 }
