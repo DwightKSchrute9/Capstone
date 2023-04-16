@@ -37,7 +37,7 @@ public class MatchController {
         return new ResponseEntity<>(match, HttpStatus.OK);
     }
     //Metodo per recuperare tutte le partite disponibili nell'applicazione e le restituisce come lista.
-    @GetMapping("/matches")
+    @GetMapping("/")
     public List<Match> getAllMatches() {
         return matchRepository.findAll();
     }

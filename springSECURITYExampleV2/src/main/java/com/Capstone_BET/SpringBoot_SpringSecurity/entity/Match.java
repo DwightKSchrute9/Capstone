@@ -28,9 +28,11 @@ public class Match {
 
     private String awayTeam;
 
-    private Integer homeScore;
+    private Double homeOdd;
 
-    private Integer awayScore;
+    private Double awayOdd;
+    
+    private Double drawOdd;
     
     private String stadium;
 }
