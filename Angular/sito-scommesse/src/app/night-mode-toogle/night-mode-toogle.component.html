@@ -1,0 +1,8 @@
+
+<div class="custom-control custom-switch ml-2">
+  <input type="checkbox" class="custom-control-input" id="darkModeSwitch" [(ngModel)]="isDarkMode" (change)="toggleDarkMode()">
+  <label class="custom-control-label" for="darkModeSwitch" [ngClass]="{'text-white': isDarkMode, 'text-dark': !isDarkMode}">
+    <ng-container *ngIf="isDarkMode; else lightMode">Dark Mode</ng-container>
+    <ng-template #lightMode>Light Mode</ng-template>
+  </label>
+</div>

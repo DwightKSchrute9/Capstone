@@ -11,9 +11,11 @@ export class LoginComponent {
   username!: string;
   password!: string;
   errorMessage: string = '';
-  router: any;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
   onSubmit(): void {
     this.authService.login(this.username, this.password)

@@ -21,7 +21,7 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NighModeToogleComponent } from './night-mode-toogle/nigh-mode-toogle.component';
+//import { NightModeToggleComponent } from './night-mode-toogle/night-mode-toogle.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -52,7 +52,7 @@ const appRoutes: Routes = [
     UtenteComponent,
     HomeComponent,
     NavbarComponent,
-    NighModeToogleComponent,
+  //  NightModeToggleComponent,
     FooterComponent,
     MatchesComponent,
     RegisterComponent,

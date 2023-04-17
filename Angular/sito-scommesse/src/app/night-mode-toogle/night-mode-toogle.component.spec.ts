@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NighModeToogleComponent } from './nigh-mode-toogle.component';
+import { NightModeToggleComponent } from './night-mode-toogle.component';
 
 describe('NighModeToogleComponent', () => {
-  let component: NighModeToogleComponent;
-  let fixture: ComponentFixture<NighModeToogleComponent>;
+  let component: NightModeToggleComponent;
+  let fixture: ComponentFixture<NightModeToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NighModeToogleComponent ]
+      declarations: [ NightModeToggleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NighModeToogleComponent);
+    fixture = TestBed.createComponent(NightModeToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
