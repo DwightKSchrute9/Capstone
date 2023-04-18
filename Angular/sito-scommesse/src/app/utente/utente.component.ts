@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UserService } from '../user.service';
+import { AuthenticationService } from '../auth.service'; // importa il tuo servizio di autenticazione
 
 @Component({
   selector: 'app-utente',
@@ -26,7 +27,8 @@ export class UtenteComponent {
   @ViewChild('sidenav')
   sidenav!: MatSidenav;
 
-  constructor(private router: Router, public userService: UserService) {}
+  constructor(private authService: AuthenticationService, private router: Router, public userService: UserService) {}
+
 
   ngOnInit(): void {
     this.getUserData();
@@ -55,8 +57,9 @@ export class UtenteComponent {
     // ...
   }
 
-  onLogoutClick() {
-    // ...
+  onLogoutClick(): void {
+    this.authService.logout(); // esegue il logout dell'utente utilizzando il servizio di autenticazione
+    this.router.navigate(['/login']); // reindirizza l'utente alla pagina di login
   }
 
   toggleSidenav() {

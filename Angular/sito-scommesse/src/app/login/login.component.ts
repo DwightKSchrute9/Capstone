@@ -11,9 +11,10 @@ export class LoginComponent {
   username!: string;
   password!: string;
   errorMessage: string = '';
+  isLoggedIn: boolean = false;
 
   constructor(
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
     private router: Router
   ) {}
 
@@ -25,6 +26,7 @@ export class LoginComponent {
             console.log(login);
             // naviga all'URL "/utente"
             this.router.navigate(['/utente']);
+        
           } else {
             // visualizza un messaggio di errore
             this.errorMessage = 'Credenziali non valide.';

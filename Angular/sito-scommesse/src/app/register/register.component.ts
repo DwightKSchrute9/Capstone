@@ -13,6 +13,8 @@ export class RegisterComponent {
   password: string = '';
   creditCardNumber: string = '';
   isSubmitting: boolean = false;
+  errorMessage:boolean = false;
+
 
   constructor(private authService: AuthenticationService) { }
 

@@ -10,7 +10,7 @@ export class UserService {
     throw new Error('Method not implemented.');
   }
 
-  private readonly API_URL = 'http://localhost:3000/api/users';
+  private readonly API_URL = 'http://localhost:8080/api/users';
 
   constructor(private http: HttpClient) { }
 
