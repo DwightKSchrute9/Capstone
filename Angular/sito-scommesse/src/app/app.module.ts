@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AsideComponent } from './aside/aside.component';
+import { BannerComponent } from './banner/banner.component';
 
 
 
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     MatchesComponent,
     RegisterComponent,
     AsideComponent,
-    BetComponent
+    BetComponent,
+    BannerComponent
 
 
   ],

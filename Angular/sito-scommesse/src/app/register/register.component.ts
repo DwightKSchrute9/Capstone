@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from '../auth.service';
 
 @Component({
@@ -13,9 +14,10 @@ export class RegisterComponent {
   password: string = '';
   creditCardNumber: string = '';
   isSubmitting: boolean = false;
-  errorMessage:boolean = false;
-  showSuccesMessage: boolean = false;
+  errorMessage:string = '';
+  showSuccessMessage: boolean = false;
 
+  @Output() close = new EventEmitter<void>();
 
   constructor(private authService: AuthenticationService) { }
 
@@ -23,15 +25,16 @@ export class RegisterComponent {
     this.isSubmitting = true;
     this.authService.register(this.name, this.username, this.email, this.password, this.creditCardNumber)
       .subscribe(() => {
-        // redirect to login page or show success message
-        
-        this.isSubmitting = true;
-        this.showSuccesMessage = true;
+        this.isSubmitting = false;
+        this.showSuccessMessage = true;
       }, (error) => {
         console.log(error);
         this.isSubmitting = false;
+        this.errorMessage = "L'utente si è registrato con sucesso, effettua il login";
       });
   }
+
+  closeModal() {
+    this.close.emit();
+  }
 }
-
-

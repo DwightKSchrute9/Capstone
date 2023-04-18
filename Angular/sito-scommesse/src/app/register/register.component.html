@@ -1,7 +1,3 @@
-
-
-
-
 <div class="register-container">
   <div class="register-form">
     <h2>Register</h2>
@@ -27,12 +23,13 @@
         <input type="text" class="form-control" [(ngModel)]="creditCardNumber" name="creditCardNumber" required>
       </div>
       <!-- form fields -->
-      <button type="submit" class="register-btn">Register</button>
+      <button type="submit" class="register-btn" (click)="closeModal()">Register</button>
     </form>
     <div *ngIf="isSubmitting">
       <p>Processing...</p>
     </div>
     <div *ngIf="!isSubmitting && errorMessage" class="error-message">{{ errorMessage }}</div>
-    <div *ngIf="showSuccesMessage" class="success-message">Registration successful!</div>
+    <div *ngIf="showSuccessMessage" class="success-message">Registration successful!</div>
   </div>
 </div>
+
