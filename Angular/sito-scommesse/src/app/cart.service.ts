@@ -7,7 +7,12 @@ import { BetType } from "./bet/betType.enum";
   providedIn: 'root'
 })
 export class CartService {
+  placeBet() {
+    throw new Error('Method not implemented.');
+  }
   bets: Bet[] = [];
+  betCount: any;
+  selectedBet: any;
 
   addBet(match: Match, betType: string, odd: DoubleRange) {
     if (!this.bets.find(existingBet => match.id === existingBet.match.id)) {

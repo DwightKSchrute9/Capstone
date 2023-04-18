@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  getCurrentUser() {
+    throw new Error('Method not implemented.');
+  }
 
   private readonly API_URL = 'http://localhost:3000/api/users';
 
@@ -30,6 +33,11 @@ export class UserService {
   deleteUserProfile(): Observable<any> {
     const url = `${this.API_URL}/profile`;
     return this.http.delete(url);
+  }
+
+  getUserData(): Observable<any> {
+    const url = `${this.API_URL}/data`;
+    return this.http.get(url);
   }
 
 }

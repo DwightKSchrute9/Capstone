@@ -1,4 +1,3 @@
-
 import { Component, Input } from '@angular/core';
 import { Match } from '../matches/matches.model';
 import { CartService } from '../cart.service';
@@ -16,7 +15,13 @@ export class AsideComponent {
   @Input()
   isBetSelected!: boolean;
 
-  constructor(public cartService: CartService) {
+  constructor(public cartService: CartService) {}
+
+  placeBet() {
+    // Implement the code for placing a bet here
+    this.cartService.placeBet();
+
 
   }
+
 }

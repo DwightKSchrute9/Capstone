@@ -10,10 +10,12 @@ import { UserService } from '../user.service';
 })
 
 export class UtenteComponent {
-  user = { email: '', creditCard: '', password: '' };
+  //user = { name: '', surname: '', email: '', creditCard: '', password: '' };
+  user: any = {};
 
-   // Dichiarazione della proprietà isFavorite
-   isFavorite: boolean = false;
+
+  // Dichiarazione della proprietà isFavorite
+  isFavorite: boolean = false;
 
   menuItems = [
     { text: 'Home', link: '/home' },
@@ -24,7 +26,22 @@ export class UtenteComponent {
   @ViewChild('sidenav')
   sidenav!: MatSidenav;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, public userService: UserService) {}
+
+  ngOnInit(): void {
+    this.getUserData();
+  }
+
+  getUserData(): void {
+    this.userService.getUserProfile().subscribe(
+      (userData) => {
+        this.user = userData;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
   onFavoriteClick() {
     this.isFavorite = !this.isFavorite;

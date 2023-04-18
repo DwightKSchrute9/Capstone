@@ -16,6 +16,10 @@
       border: 1px solid #ddd;
       color: black;
       background-color: #f2f2f2; /* grigio chiaro */
+
+     &:nth-child(n+1) {  // nascondi le colonne a partire dalla sesta
+       display: none;
+     }
     }
 
     th {
@@ -23,7 +27,7 @@
     }
 
     td:hover {
-      background-color: #ddd;
+      background-color: #78ca1b;
       cursor: pointer;
     }
 
@@ -32,4 +36,48 @@
       font-weight: bold;
     }
   }
+
+  @media (min-width: 360px)  {
+
+      table {
+        border-collapse: collapse;
+        width: 30%;
+        margin-top: 20px;
+
+        th:nth-child(3), td:nth-child(3),
+        th:nth-child(4), td:nth-child(4),
+        th:nth-child(6), td:nth-child(6),
+        th:nth-child(7), td:nth-child(7),
+        th:nth-child(8), td:nth-child(8) {
+          display: table-cell;
+        }
+      }
+  @media (min-width: 470px)  {
+
+      table {
+        border-collapse: collapse;
+        width: 30%;
+        margin-top: 20px;
+
+        th:nth-child(1), td:nth-child(1),
+        th:nth-child(2), td:nth-child(2),
+        th:nth-child(3), td:nth-child(3),
+        th:nth-child(4), td:nth-child(4),
+        th:nth-child(5), td:nth-child(5),
+        th:nth-child(6), td:nth-child(6),
+        th:nth-child(6), td:nth-child(6),
+        th:nth-child(7), td:nth-child(7),
+        th:nth-child(8), td:nth-child(8),{
+          display: table-cell;
+        }
+      }
+    }
+  }
 }
+
+
+
+
+
+
+
