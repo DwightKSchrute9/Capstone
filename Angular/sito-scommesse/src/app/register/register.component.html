@@ -33,6 +33,6 @@
       <p>Processing...</p>
     </div>
     <div *ngIf="!isSubmitting && errorMessage" class="error-message">{{ errorMessage }}</div>
-    <div *ngIf="!isSubmitting && !errorMessage" class="success-message">Registration successful!</div>
+    <div *ngIf="showSuccesMessage" class="success-message">Registration successful!</div>
   </div>
 </div>

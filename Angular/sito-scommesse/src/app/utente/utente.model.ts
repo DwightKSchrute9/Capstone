@@ -1,6 +1,7 @@
-export class Utente{
-  name!: string;
-  email!: string;
-  password!: string;
-  creditCard!: string;
+export interface Utente{
+  name: string;
+  lastName: string;
+  email: string;
+  creditCard: string;
+  username: string;
 }

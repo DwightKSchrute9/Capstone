@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  getCurrentUser() {
-    throw new Error('Method not implemented.');
-  }
-
   private readonly API_URL = 'http://localhost:8080/api/users';
 
   constructor(private http: HttpClient) { }
@@ -22,22 +18,34 @@ export class UserService {
 
   getUserProfile(): Observable<any> {
     const url = `${this.API_URL}/profile`;
-    return this.http.get(url);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}` // aggiunge il token JWT all'header della richiesta
+    });
+    return this.http.get(url, { headers });
   }
 
   updateUserProfile(userProfile: any): Observable<any> {
     const url = `${this.API_URL}/profile`;
-    return this.http.put(url, userProfile);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}` // aggiunge il token JWT all'header della richiesta
+    });
+    return this.http.put(url, userProfile, { headers });
   }
 
   deleteUserProfile(): Observable<any> {
     const url = `${this.API_URL}/profile`;
-    return this.http.delete(url);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}` // aggiunge il token JWT all'header della richiesta
+    });
+    return this.http.delete(url, { headers });
   }
 
-  getUserData(): Observable<any> {
+  getUserData(jwt: string): Observable<any> {
     const url = `${this.API_URL}/data`;
-    return this.http.get(url);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${jwt}`
+    });
+    return this.http.get(url, { headers });
   }
-
 }

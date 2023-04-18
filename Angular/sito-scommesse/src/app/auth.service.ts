@@ -9,6 +9,11 @@ import { tap } from 'rxjs/operators';
 export class AuthenticationService {
   private readonly API_URL = 'http://localhost:8080/api';
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 
@@ -17,15 +22,18 @@ export class AuthenticationService {
   login(username: string, password: string): Observable<any> {
     const url = `${this.API_URL}/auth/login`;
     const data = { username, password };
-    return this.http.post(url, data)
+    return this.http.post(url, data, this.httpOptions)
       .pipe(
-        tap(() => {
+        tap((response: any) => {
+          console.log(response)
+          localStorage.setItem('token', response.accessToken); // salva il token nel localStorage
           this.loggedIn.next(true);
         })
       );
   }
 
   logout(): void {
+    localStorage.removeItem('token'); // rimuove il token dal localStorage
     this.loggedIn.next(false);
   }
 
@@ -38,9 +46,16 @@ export class AuthenticationService {
     const data = { name, username: username, email, password, creditCard };
     return this.http.post(url, data);
   }
-  getUserData(): Observable<any> {
-    const url = `${this.API_URL}/user`;
-    return this.http.get(url);
-  }
 
+  getUserData(): Observable<any> {
+    const url = `${this.API_URL}/auth/user`;
+    const token = localStorage.getItem('token'); // recupera il token dal localStorage
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // aggiunge il token nell'header della richiesta
+      })
+    };
+    return this.http.get(url, httpOptions);
+  }
 }

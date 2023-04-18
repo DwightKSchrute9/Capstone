@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { UserService } from '../user.service';
 import { AuthenticationService } from '../auth.service'; // importa il tuo servizio di autenticazione
+import { Utente } from './utente.model';
 
 @Component({
   selector: 'app-utente',
@@ -12,7 +13,7 @@ import { AuthenticationService } from '../auth.service'; // importa il tuo servi
 
 export class UtenteComponent {
   //user = { name: '', surname: '', email: '', creditCard: '', password: '' };
-  user: any = {};
+  user: Utente = {} as Utente;
 
 
   // Dichiarazione della proprietà isFavorite
@@ -35,7 +36,7 @@ export class UtenteComponent {
   }
 
   getUserData(): void {
-    this.userService.getUserProfile().subscribe(
+    this.authService.getUserData().subscribe(
       (userData) => {
         this.user = userData;
       },
@@ -59,7 +60,7 @@ export class UtenteComponent {
 
   onLogoutClick(): void {
     this.authService.logout(); // esegue il logout dell'utente utilizzando il servizio di autenticazione
-    this.router.navigate(['/login']); // reindirizza l'utente alla pagina di login
+    this.router.navigate(['/home']); // reindirizza l'utente alla pagina home
   }
 
   toggleSidenav() {

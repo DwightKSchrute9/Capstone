@@ -14,6 +14,7 @@ export class RegisterComponent {
   creditCardNumber: string = '';
   isSubmitting: boolean = false;
   errorMessage:boolean = false;
+  showSuccesMessage: boolean = false;
 
 
   constructor(private authService: AuthenticationService) { }
@@ -23,7 +24,9 @@ export class RegisterComponent {
     this.authService.register(this.name, this.username, this.email, this.password, this.creditCardNumber)
       .subscribe(() => {
         // redirect to login page or show success message
+        
         this.isSubmitting = true;
+        this.showSuccesMessage = true;
       }, (error) => {
         console.log(error);
         this.isSubmitting = false;
