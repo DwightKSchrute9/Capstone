@@ -48,6 +48,15 @@ public class BetService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	///Aggiunto service per il moltiplicatore
+	public double calculateOdds(List<Bet> bets) {
+	    double totalOdd = 1;
+	    for (Bet bet : bets) {
+	      totalOdd *= bet.getOdd();
+	    }
+	    return totalOdd;
+	  }
+	}
 
-    }
+    
 

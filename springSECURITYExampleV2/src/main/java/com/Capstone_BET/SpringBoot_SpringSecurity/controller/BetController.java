@@ -97,7 +97,14 @@ public class BetController {
         betRepository.delete(betOptional.get());
         return ResponseEntity.ok().build();
     }
+////metodo per il moltiplicatore della bet
 
-
-
+	@PostMapping("/calculate")
+	public double calculateOdds(@RequestBody List<Bet> bets) {
+		double totalOdd = 1;
+		for (Bet bet : bets) {
+			totalOdd *= bet.getOdd();
+		}
+		return totalOdd;
+	}
 }
