@@ -1,14 +1,15 @@
+
+
+
 <aside class="aside">
   <div *ngFor="let bet of cartService.bets">
-    <app-bet [bet]="bet"></app-bet>
-
-
+    <app-bet [bet]="bet" (betSelected)="updateSelectedBet($event)"></app-bet>
   </div>
   <div class="bet-header">
     <h5 class="bet-title">Schedina</h5>
     <div class="bet-icon">
       <i class="fa fa-shopping-cart"></i>
-      <span class="bet-count">{{ betCount }}</span>
+      <span class="bet-count">{{ cartService.bets.length }}</span>
     </div>
   </div>
   <div class="bet-content">
@@ -19,5 +20,8 @@
       Hai selezionato la quota {{ selectedBet }}. Inserisci l'importo e procedi con la scommessa.
     </p>
     <button class="bet-btn" *ngIf="isBetSelected" (click)="placeBet()">Scommetti</button>
+  </div>
+  <div class="bet-content" *ngIf="cartService.bets.length > 0">
+    <p class="bet-moltiplicatore">Moltiplicatore: {{moltiplicatore()}}</p>
   </div>
 </aside>

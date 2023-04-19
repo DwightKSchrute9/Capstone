@@ -1,5 +1,5 @@
+
 import { Component, Input } from '@angular/core';
-import { Match } from '../matches/matches.model';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -8,20 +8,27 @@ import { CartService } from '../cart.service';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent {
-  @Input()
-  betCount!: number;
-  @Input()
-  selectedBet!: string;
-  @Input()
-  isBetSelected!: boolean;
+  @Input() isBetSelected: boolean = false;
+  selectedBet: any;
 
   constructor(public cartService: CartService) {}
+
+  updateSelectedBet(bet: any) {
+    this.selectedBet = bet;
+    this.isBetSelected = true;
+  }
 
   placeBet() {
     // Implement the code for placing a bet here
     this.cartService.placeBet();
-
-
+    
   }
 
+  moltiplicatore() {
+    let result = 1;
+    for (const bet of this.cartService.bets) {
+      result *= bet.odd;
+    }
+    return result.toFixed(2);
+  }
 }

@@ -24,6 +24,9 @@ export class BetComponent {
       odd: odd
     };
     this.betSelected.emit(betItem);
+
+    
+
   }
 
   getBetOn(): string {
