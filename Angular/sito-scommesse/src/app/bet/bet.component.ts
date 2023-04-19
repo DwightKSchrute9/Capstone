@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Bet } from './bet.model';
 import { BetType } from './betType.enum';
+import { BetService } from '../bet.service';
+import { Match } from '../matches/matches.model';
 
 @Component({
   selector: 'app-bet',
@@ -8,16 +10,14 @@ import { BetType } from './betType.enum';
   styleUrls: ['./bet.component.scss']
 })
 export class BetComponent {
-  @Input()
-  matches: any[] = [];
+  @Input() matches: Match[] = [];
+  @Input() bet!: Bet;
+  @Output() betSelected = new EventEmitter<any>();
 
-  @Input()
-  bet!: Bet;
-
-  @Output()
-  betSelected = new EventEmitter<any>();
+  constructor(private betService: BetService) {}
 
   onOddClick(matchId: number, odd: number, betType: string) {
+    this.betService.addBet(matchId, betType, odd);
     const betItem = {
       matchId: matchId,
       betType: betType,

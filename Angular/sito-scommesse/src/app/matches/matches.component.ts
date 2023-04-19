@@ -3,6 +3,7 @@ import { Match } from '../matches/matches.model';
 import { MatchesService } from '../matches.service';
 import { CartService } from '../cart.service';
 import { BetType } from '../bet/betType.enum';
+import { DoubleRange } from "../types";
 
 @Component({
   selector: 'app-matches',
@@ -16,7 +17,7 @@ export class MatchesComponent implements OnInit {
 
   constructor(private matchesService: MatchesService, private cartService: CartService) { }
 
-  addToCart(match: Match, betType: string, odd: DoubleRange): void {
+  addToCart(match: Match, betType: string, odd: number): void {
     console.log(`Aggiunto al carrello: ${match.homeTeam} - ${match.awayTeam} - ${odd}`);
     // aggiungi la logica per aggiungere le quote al carrello qui
     this.cartService.addBet(match, betType, odd);

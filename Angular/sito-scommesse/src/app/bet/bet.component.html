@@ -1,8 +1,9 @@
 <div class="bet-item" *ngIf="bet">
-  <div class="bet-row" >
+  <div class="bet-row">
     <div class="bet-team">{{ bet.match.homeTeam }} vs {{ bet.match.awayTeam }}</div>
-    <div class="bet-odd" >Bet on: {{ getBetOn() }}</div>
-    <div class="bet-odd" >Odd: {{ bet.odd }}</div>
-
+    <div class="bet-odd">Bet on: {{ getBetOn() }}</div>
+    <div class="bet-odd">Odd: {{ bet.odd }}</div>
+    <div class="bet-button" *ngIf="bet.match.id && bet.odd" (click)="onOddClick(bet.match.id, bet.odd, bet.betType)">Place bet</div>
   </div>
 </div>
+
