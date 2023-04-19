@@ -23,7 +23,7 @@ export class MatchesComponent implements OnInit {
     this.cartService.addBet(match, betType, odd);
   }
 
-  onOddClick(odd: DoubleRange) {
+  onOddClick(odd: number) {
     this.oddSelected.emit(odd);
   }
 

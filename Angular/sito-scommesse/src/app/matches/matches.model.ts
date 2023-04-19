@@ -6,7 +6,7 @@ export interface Match {
   homeTeam: string;
   awayTeam: string;
   stadium: string;
-  homeOdd: DoubleRange;
-  awayOdd: DoubleRange;
-  drawOdd: DoubleRange;
+  homeOdd: number;
+  awayOdd: number;
+  drawOdd: number;
 }

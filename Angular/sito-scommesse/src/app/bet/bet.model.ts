@@ -5,6 +5,6 @@ import { DoubleRange } from "../types";
 
 export interface Bet {
   match: Match;
-  betType: String;
-  odd: DoubleRange;
+  betType: string;
+  odd: number;
 }

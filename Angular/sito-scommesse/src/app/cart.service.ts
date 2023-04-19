@@ -14,7 +14,7 @@ export class CartService {
   betCount: any;
   selectedBet: any;
 
-  addBet(match: Match, betType: string, odd: DoubleRange) {
+  addBet(match: Match, betType: string, odd: number) {
     if (!this.bets.find(existingBet => match.id === existingBet.match.id)) {
       this.bets.push({match: match, betType: this.getBetType(betType), odd: odd});
     }
