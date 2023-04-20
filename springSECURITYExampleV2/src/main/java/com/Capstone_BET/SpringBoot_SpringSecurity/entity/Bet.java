@@ -1,6 +1,8 @@
 package com.Capstone_BET.SpringBoot_SpringSecurity.entity;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,23 +23,18 @@ public class Bet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private String name;
-    
     private double odd;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    @ManyToOne
-    private Match match;
+    private User user;    
+    
+    @OneToMany(mappedBy="bet", cascade=CascadeType.ALL)
+    private Set<BetElement> betElements = new HashSet<>();
 
     private BigDecimal betAmount;
     
     private BigDecimal winAmount = new BigDecimal(0);
-
-    @Enumerated(EnumType.STRING)
-    private BetType betType;
     
     @Enumerated(EnumType.STRING)
     private BetStatus betStatus;

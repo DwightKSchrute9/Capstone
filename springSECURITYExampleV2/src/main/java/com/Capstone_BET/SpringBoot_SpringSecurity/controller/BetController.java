@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,15 +19,16 @@ import com.Capstone_BET.SpringBoot_SpringSecurity.entity.Bet;
 import com.Capstone_BET.SpringBoot_SpringSecurity.repository.BetRepository;
 import com.Capstone_BET.SpringBoot_SpringSecurity.service.BetService;
 
-
-
 @RestController
 @RequestMapping("/api/bets")
 public class BetController {
-    
+
     @Autowired
     private BetRepository betRepository;
-    
+
+    @Autowired
+    private BetService betService;
+
     @GetMapping("/{id}")
     public ResponseEntity<Bet> getBetById(@PathVariable("id") Long id) {
         Bet bet = betRepository.findById(id).orElse(null);
@@ -35,51 +37,32 @@ public class BetController {
         }
         return new ResponseEntity<>(bet, HttpStatus.OK);
     }
-    @GetMapping("/bets")
+
+    @GetMapping("/")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<List<Bet>> getAllBets() {
-        BetController betService = null;
-		@SuppressWarnings("unchecked")
-		List<Bet> bets = (List<Bet>) betService.getAllBets();
-        return new ResponseEntity<>(bets, HttpStatus.OK);
-    }
-    @Autowired
-    private BetService betService;
-
-    @GetMapping("/bets/user/{userId}")
-    public ResponseEntity<List<Bet>> getBetsByUserId(@PathVariable Long userId) {
-        List<Bet> bets = betService.getBetsByUserId(userId);
+        List<Bet> bets = betService.getAllBets();
         return new ResponseEntity<>(bets, HttpStatus.OK);
     }
     
-    //per visualizzare i dettagli di una scommessa specifica, identificata dall'id.
-    @GetMapping("/bets/{id}")
-    public ResponseEntity<Bet> getBet(@PathVariable(value = "id") Long betId) {
-        java.util.Optional<Bet> optionalBet = betRepository.findById(betId);
-        if (optionalBet.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok().body(optionalBet.get());
+    @GetMapping("/my")
+    public ResponseEntity<List<Bet>> getMyBets() {
+    	List<Bet> bets = betService.getCurrentUserBets();
+        return new ResponseEntity<>(bets, HttpStatus.OK);
     }
 
-
-    
     // altri metodi del controller per le operazioni CRUD su Bet
-    @PostMapping("/bets")
+    @PostMapping("/")
     public ResponseEntity<Bet> createBet(@RequestBody Bet bet) {
-        Bet createdBet = BetService.createBet(bet);
+        Bet createdBet = betService.createBet(bet);
         return ResponseEntity.ok(createdBet);
     }
- // BetController.java
 
-    @PutMapping("/bets/{betId}")
+    @PutMapping("/{betId}")
     public ResponseEntity<Bet> updateBet(@PathVariable Long betId, @RequestBody Bet updatedBet) {
         java.util.Optional<Bet> optionalBet = betRepository.findById(betId);
         if (optionalBet.isPresent()) {
             Bet bet = optionalBet.get();
-            bet.setMatch(updatedBet.getMatch());
-            bet.setBetAmount(updatedBet.getBetAmount());
-            bet.setWinAmount(updatedBet.getWinAmount());
-            bet.setBetType(updatedBet.getBetType());
             bet.setBetResult(updatedBet.getBetResult());
             bet.setBetStatus(updatedBet.getBetStatus());
             betRepository.save(bet);
@@ -88,6 +71,7 @@ public class BetController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteBet(@PathVariable Long id) {
         java.util.Optional<Bet> betOptional = betRepository.findById(id);
@@ -97,14 +81,4 @@ public class BetController {
         betRepository.delete(betOptional.get());
         return ResponseEntity.ok().build();
     }
-////metodo per il moltiplicatore della bet
-
-	@PostMapping("/calculate")
-	public double calculateOdds(@RequestBody List<Bet> bets) {
-		double totalOdd = 1;
-		for (Bet bet : bets) {
-			totalOdd *= bet.getOdd();
-		}
-		return totalOdd;
-	}
 }
