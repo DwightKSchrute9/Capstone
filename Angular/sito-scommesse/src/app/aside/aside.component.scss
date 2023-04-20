@@ -1,7 +1,7 @@
 .aside {
   width: 300px;
   margin-left: 20px;
- 
+
 
   .bet-header {
     display: flex;
@@ -46,6 +46,17 @@
       font-size: 16px;
       font-weight: bold;
       margin-top: 10px;
+    }
+    .bet-btn {
+      padding: 10px;
+      width: 100%;
+
+    }
+    #bet-amount{
+      padding: 8px;
+      background-color: rgb(51, 44, 44);
+      color: wheat;
+      margin: 10px;
     }
   }
 }

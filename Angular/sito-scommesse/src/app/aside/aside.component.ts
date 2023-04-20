@@ -1,6 +1,7 @@
 
 import { Component, Input } from '@angular/core';
 import { CartService } from '../cart.service';
+import { AuthenticationService } from '../auth.service';
 
 @Component({
   selector: 'app-aside',
@@ -10,8 +11,9 @@ import { CartService } from '../cart.service';
 export class AsideComponent {
   @Input() isBetSelected: boolean = false;
   selectedBet: any;
+  showErrorMessage: boolean = false;
 
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService, public authService: AuthenticationService) {}
 
   updateSelectedBet(bet: any) {
     this.selectedBet = bet;
@@ -19,10 +21,17 @@ export class AsideComponent {
   }
 
   placeBet() {
-    // Implement the code for placing a bet here
-    this.cartService.placeBet();
-    
+    if (this.authService.isLoggedIn()) {
+      if (this.cartService.betAmount <= 0) {
+        alert("Inserire un importo valido per la scommessa.");
+      } else {
+        this.cartService.placeBet();
+      }
+    } else {
+      this.showErrorMessage = true;
+    }
   }
+
 
   moltiplicatore() {
     let result = 1;
@@ -30,5 +39,9 @@ export class AsideComponent {
       result *= bet.odd;
     }
     return result.toFixed(2);
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 }

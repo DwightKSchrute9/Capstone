@@ -13,6 +13,7 @@ export class CartService {
   bets: Bet[] = [];
   betCount: any;
   selectedBet: any;
+  betAmount:any;
 
   addBet(match: Match, betType: string, odd: number) {
     if (!this.bets.find(existingBet => match.id === existingBet.match.id)) {

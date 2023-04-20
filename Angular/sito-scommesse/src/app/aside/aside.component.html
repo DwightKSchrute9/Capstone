@@ -19,7 +19,12 @@
     <p class="bet-selection" *ngIf="isBetSelected">
       Hai selezionato la quota {{ selectedBet }}. Inserisci l'importo e procedi con la scommessa.
     </p>
-    <button class="bet-btn" *ngIf="isBetSelected" (click)="placeBet()">Scommetti</button>
+    <div class="bet-amount">
+      <label for="bet-amount">Importo scommessa:</label>
+      <input type="number" id="bet-amount" [(ngModel)]="cartService.betAmount" required>
+      </div>
+    <button class="bet-btn" (click)="placeBet()" [disabled]="!isLoggedIn() || showErrorMessage">Scommetti</button>
+    <p class="bet-error" *ngIf="showErrorMessage">Hai bisogno di registrarti per poter scommettere</p>
   </div>
   <div class="bet-content" *ngIf="cartService.bets.length > 0">
     <p class="bet-moltiplicatore">Moltiplicatore: {{moltiplicatore()}}</p>
