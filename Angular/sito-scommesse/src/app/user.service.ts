@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CustomHttpClient } from './customHttpClient.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   private readonly API_URL = 'http://localhost:8080/api/users';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: CustomHttpClient) { }
 
   register(name: string, surname: string, email: string, password: string, creditCard: string): Observable<any> {
     const url = `${this.API_URL}/register`;
@@ -18,34 +19,21 @@ export class UserService {
 
   getUserProfile(): Observable<any> {
     const url = `${this.API_URL}/profile`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}` // aggiunge il token JWT all'header della richiesta
-    });
-    return this.http.get(url, { headers });
+    return this.http.get(url);
   }
 
   updateUserProfile(userProfile: any): Observable<any> {
     const url = `${this.API_URL}/profile`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}` // aggiunge il token JWT all'header della richiesta
-    });
-    return this.http.put(url, userProfile, { headers });
+    return this.http.put(url, userProfile);
   }
 
   deleteUserProfile(): Observable<any> {
     const url = `${this.API_URL}/profile`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}` // aggiunge il token JWT all'header della richiesta
-    });
-    return this.http.delete(url, { headers });
+    return this.http.delete(url);
   }
 
   getUserData(jwt: string): Observable<any> {
     const url = `${this.API_URL}/data`;
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${jwt}`
-    });
-    return this.http.get(url, { headers });
+    return this.http.get(url);
   }
 }

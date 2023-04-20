@@ -1,3 +1,154 @@
+.navbar {
+  background-color: #1b1717;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  height: 10vh;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-brand {
+    font-size: 3.5rem;
+    color:white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Bangers';
+    text-decoration-line: none;
+  }
+
+  .nav-item {
+    margin-left: 1rem;
+    display: inline-block;
+    font-size: 1.5rem;
+
+    a {
+      color: #2e3440;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .ml-auto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .custom-control {
+      margin-left: 2rem;
+    }
+
+    .btn-outline-primary {
+      color: white;
+      background-color: #21534f;
+      border-color: #2e3440;
+      padding: 10px;
+      font-family: Banger cursive;
+      font-size: 20px;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 150px;
+      gap: 1rem;
+
+
+      &:hover {
+        background-color: #8caf0e;
+        color: #1e2412;
+      }
+    }
+
+    .btn-outline-light {
+      border-color: #fff;
+      color: #0f0d0d;
+      border-radius: 5px;
+      font-family: Banger cursive;
+      font-size: 20px;
+      width: 100%;
+      max-width: 150px;
+      padding: 8px;
+
+
+      &:hover {
+        background-color: #ff9e00;
+      }
+    }
+  }
+
+  .custom-switch {
+    .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: #2e3440;
+    }
+
+    .custom-control-label {
+      color: #e0e0e0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .navbar {
+      height: auto;
+      padding: 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .navbar-brand {
+        margin-bottom: 1rem;
+      }
+
+      .ml-auto {
+        margin: 1rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        .nav-item {
+          margin-left: 0;
+        }
+
+        .btn-outline-primary {
+          width: 100%;
+          max-width: unset;
+
+
+
+
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .container {
   background-color: #152238; // Sostituisci con il colore di sfondo desiderato
   color: #fff; // Sostituisci con il colore del testo desiderato

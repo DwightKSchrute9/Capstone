@@ -4,6 +4,7 @@
     <div class="bet-odd">Bet on: {{ getBetOn() }}</div>
     <div class="bet-odd">Odd: {{ bet.odd }}</div>
     <div class="bet-button" *ngIf="bet.match.id && bet.odd" (click)="onOddClick(bet.match.id, bet.odd, bet.betType)">Place bet</div>
+    <button (click)="removeBet(bet.match.id)">X</button>
   </div>
 </div>
 

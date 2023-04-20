@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Bet } from "./bet/bet.model";
+import { BetElement } from "./bet/bet-element.model";
 import { Match } from "./matches/matches.model";
 import { BetType } from "./bet/betType.enum";
 
@@ -10,15 +10,19 @@ export class CartService {
   placeBet() {
     throw new Error('Method not implemented.');
   }
-  bets: Bet[] = [];
+  bets: BetElement[] = [];
   betCount: any;
   selectedBet: any;
-  betAmount:any;
+  betAmount: number = 0;
 
   addBet(match: Match, betType: string, odd: number) {
     if (!this.bets.find(existingBet => match.id === existingBet.match.id)) {
       this.bets.push({match: match, betType: this.getBetType(betType), odd: odd});
     }
+  }
+
+  removeBet(matchId: number) {
+    this.bets = this.bets.filter(bet => bet.match.id !== matchId);
   }
 
   getBetType(betType: string): BetType {

@@ -7,34 +7,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  isLoginOpen = false;
-  isRegisterOpen = false;
+ // isLoginOpen = false;
+//  isRegisterOpen = false;
+ // isUserLoggedIn = false; // aggiunta la variabile isUserLoggedIn
 
 
-  onLoginButtonClick() {
-    this.isLoginOpen = true;
-    this.isRegisterOpen = false;
+ // onLoginButtonClick() {
+ //   this.isLoginOpen = true;
+  //  this.isRegisterOpen = false;
+  //}
+
+  //onCloseLogin() {
+  //  this.isLoginOpen = false;
+  //}
+
+ // onRegisterButtonClick(): void {
+  //  this.isRegisterOpen = true;
+ //   this.isLoginOpen = false;
   }
 
-  onCloseLogin() {
-    this.isLoginOpen = false;
-  }
+ // onCloseRegister(): void {
+  //  this.isRegisterOpen = false;
+  //}
 
-  onRegisterButtonClick(): void {
-    this.isRegisterOpen = true;
-    this.isLoginOpen = false;
-  }
+ // isDarkMode: boolean = false;
 
-  onCloseRegister(): void {
-    this.isRegisterOpen = false;
-  }
-
-  isDarkMode: boolean = false;
-
-  toggleDarkMode(): void {
-    this.isDarkMode = !this.isDarkMode;
-  }
-}
+ // toggleDarkMode(): void {
+  //  this.isDarkMode = !this.isDarkMode;
+ // }
+ // onLogout(): void {
+  //  this.isUserLoggedIn = false;
+    // eventualmente chiamare un metodo di logout nella componente Utente che
+    // fa ritornare alla home page e nasconde la toolbar dell'utente
+ // }
+//}
 
 
 

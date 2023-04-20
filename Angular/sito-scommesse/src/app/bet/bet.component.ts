@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Bet } from './bet.model';
+import { BetElement } from './bet-element.model';
 import { BetType } from './betType.enum';
 import { BetService } from '../bet.service';
 import { Match } from '../matches/matches.model';
@@ -11,8 +11,9 @@ import { Match } from '../matches/matches.model';
 })
 export class BetComponent {
   @Input() matches: Match[] = [];
-  @Input() bet!: Bet;
+  @Input() bet!: BetElement;
   @Output() betSelected = new EventEmitter<any>();
+  @Output() onRemoveBet = new EventEmitter<number>();
 
   constructor(private betService: BetService) {}
 
@@ -25,7 +26,7 @@ export class BetComponent {
     };
     this.betSelected.emit(betItem);
 
-    
+
 
   }
 
@@ -38,5 +39,9 @@ export class BetComponent {
       }
     }
     return '';
+  }
+
+  removeBet(matchId: number) {
+    this.onRemoveBet.emit(matchId);
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { CustomHttpClient } from './customHttpClient.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,14 @@ import { tap } from 'rxjs/operators';
 export class AuthenticationService {
   private readonly API_URL = 'http://localhost:8080/api';
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    })
-  };
-
   private loggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: CustomHttpClient) { }
 
   login(username: string, password: string): Observable<any> {
     const url = `${this.API_URL}/auth/login`;
     const data = { username, password };
-    return this.http.post(url, data, this.httpOptions)
+    return this.http.post(url, data)
       .pipe(
         tap((response: any) => {
           console.log(response)
@@ -49,13 +44,6 @@ export class AuthenticationService {
 
   getUserData(): Observable<any> {
     const url = `${this.API_URL}/auth/user`;
-    const token = localStorage.getItem('token'); // recupera il token dal localStorage
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` // aggiunge il token nell'header della richiesta
-      })
-    };
-    return this.http.get(url, httpOptions);
+    return this.http.get(url);
   }
 }

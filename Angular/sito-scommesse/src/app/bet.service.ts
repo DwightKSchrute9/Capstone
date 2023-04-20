@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Bet } from './bet/bet.model';
+import { BetElement } from './bet/bet-element.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BetService {
-  private bets: Bet[] = [];
+  private bets: BetElement[] = [];
 
   addBet(matchId: number, betType: string, odd: number) {
     this.bets.push({ match: { id: matchId } as any, betType, odd });
@@ -19,7 +19,7 @@ export class BetService {
     }
   }
 
-  getBets(): Bet[] {
+  getBets(): BetElement[] {
     return this.bets;
   }
 

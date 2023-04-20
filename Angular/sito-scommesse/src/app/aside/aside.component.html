@@ -3,7 +3,7 @@
 
 <aside class="aside">
   <div *ngFor="let bet of cartService.bets">
-    <app-bet [bet]="bet" (betSelected)="updateSelectedBet($event)"></app-bet>
+    <app-bet [bet]="bet" (betSelected)="updateSelectedBet($event)" (onRemoveBet)="cartService.removeBet($event)"></app-bet>
   </div>
   <div class="bet-header">
     <h5 class="bet-title">Schedina</h5>
@@ -28,5 +28,6 @@
   </div>
   <div class="bet-content" *ngIf="cartService.bets.length > 0">
     <p class="bet-moltiplicatore">Moltiplicatore: {{moltiplicatore()}}</p>
+    <p class="bet-vincita">Vincita: {{ (moltiplicatore() * cartService.betAmount).toFixed(2) }}</p>
   </div>
 </aside>
