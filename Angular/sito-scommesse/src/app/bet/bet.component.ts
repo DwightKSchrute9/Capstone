@@ -3,7 +3,7 @@ import { BetElement } from './bet-element.model';
 import { BetType } from './betType.enum';
 import { BetService } from '../bet.service';
 import { Match } from '../matches/matches.model';
-
+import { CustomHttpClient } from '../customHttpClient.service';
 @Component({
   selector: 'app-bet',
   templateUrl: './bet.component.html',
@@ -14,8 +14,15 @@ export class BetComponent {
   @Input() bet!: BetElement;
   @Output() betSelected = new EventEmitter<any>();
   @Output() onRemoveBet = new EventEmitter<number>();
+  bets: BetElement[] = [];
 
-  constructor(private betService: BetService) {}
+  constructor(private betService: BetService,private http: CustomHttpClient) {}
+
+  ngOnInit() {
+    this.betService.getBetsFromDatabase().subscribe(bets => {
+      this.bets = bets;
+    });
+  }
 
   onOddClick(matchId: number, odd: number, betType: string) {
     this.betService.addBet(matchId, betType, odd);
@@ -25,8 +32,6 @@ export class BetComponent {
       odd: odd
     };
     this.betSelected.emit(betItem);
-
-
 
   }
 

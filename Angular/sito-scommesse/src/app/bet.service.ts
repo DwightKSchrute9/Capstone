@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BetElement } from './bet/bet-element.model';
+import { CustomHttpClient } from './customHttpClient.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Injectable({
@@ -7,6 +9,8 @@ import { BetElement } from './bet/bet-element.model';
 })
 export class BetService {
   private bets: BetElement[] = [];
+
+  constructor(private http: CustomHttpClient) {}
 
   addBet(matchId: number, betType: string, odd: number) {
     this.bets.push({ match: { id: matchId } as any, betType, odd });
@@ -30,4 +34,11 @@ export class BetService {
   getTotalOdds(): number {
     return this.bets.reduce((total, b) => total * b.odd, 1);
   }
+
+  getBetsFromDatabase(): Observable<BetElement[]> {
+    return this.http.get('http://localhost:8080/api/bets/my');
+  }
+
+
+
 }
