@@ -4,5 +4,5 @@ public enum BetType {
 	HOME,
 	AWAY,
 	DRAW
-	// @TODO: ADD ALL TYPES
+	// @TODO: ADD ALL TYPES//
 }
