@@ -24,16 +24,35 @@
 
     th {
       font-weight: bold;
+      background-color: khaki;
     }
 
-    td:hover {
+    .quote{
+      color: blue;
+      font-weight: bold;
+      text-shadow: 0cqi;
+      background-color: rgb(207, 207, 207);
+    }
+
+    .quote:hover {
       background-color: #78ca1b;
       cursor: pointer;
     }
 
-    td:hover .odd {
+    .quote:hover .odd {
       font-size: 1.2em;
       font-weight: bold;
+    }
+    .squadre{
+      font-weight: bold;
+      background-color: rgb(207, 207, 207);
+    }
+    .corsivo{
+      font-style: oblique;
+      background-color: rgb(207, 207, 207) ;
+    }
+    .idPartita {
+      background-color: khaki;
     }
   }
 

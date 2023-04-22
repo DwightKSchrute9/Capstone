@@ -8,6 +8,7 @@ import { AuthenticationService } from '../auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+
   name: string = '';
   username: string = '';
   email: string = '';
@@ -18,6 +19,10 @@ export class RegisterComponent {
   showSuccessMessage: boolean = false;
 
   @Output() close = new EventEmitter<void>();
+  showRegisterModal: boolean = false;
+
+
+
 
   constructor(private authService: AuthenticationService) { }
 
@@ -33,6 +38,10 @@ export class RegisterComponent {
         this.errorMessage = "L'utente si è registrato con sucesso, effettua il login";
       });
   }
+  closeRegisterModal(): void {
+    this.showRegisterModal = true;
+  }
+
 
   closeModal() {
     this.close.emit();

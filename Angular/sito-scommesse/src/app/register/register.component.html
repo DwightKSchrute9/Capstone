@@ -1,6 +1,9 @@
 <div class="register-container">
   <div class="register-form">
     <h2>Register</h2>
+    <button type="button" class="close" (click)="closeModal()">&times;</button>
+    <app-register *ngIf="showRegisterModal" (close)="closeRegisterModal()"></app-register>
+
     <form (ngSubmit)="onSubmit()" *ngIf="!isSubmitting">
       <div class="form-group">
         <label>Name:</label>

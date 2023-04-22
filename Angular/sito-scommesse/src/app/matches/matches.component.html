@@ -15,14 +15,14 @@
 
     <tbody>
       <tr *ngFor="let match of matches">
-        <td>{{ match.id }}</td>
-        <td>{{ match.date }}</td>
-        <td>{{ match.homeTeam }}</td>
-        <td>{{ match.awayTeam }}</td>
-        <td>{{ match.stadium }}</td>
-        <td (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
-        <td (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
-        <td (click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
+        <td class="idPartita">{{ match.id }}</td>
+        <td class="corsivo">{{ match.date }}</td>
+        <td class="squadre">{{ match.homeTeam }}</td>
+        <td class="squadre">{{ match.awayTeam }}</td>
+        <td class="corsivo">{{ match.stadium }}</td>
+        <td class="quote" (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
+        <td class= "quote"(click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
+        <td class="quote"(click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
       </tr>
     </tbody>
   </table>

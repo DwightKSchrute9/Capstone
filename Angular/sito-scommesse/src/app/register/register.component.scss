@@ -30,6 +30,23 @@
   width: 400px;
 
 }
+.register-form {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
 
 h2 {
   text-align: center;
