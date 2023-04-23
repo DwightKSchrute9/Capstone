@@ -4,6 +4,7 @@
   align-items: center;
   min-height: calc(100vh - 56px);
   padding: 40px;
+  
 
   table {
     border-collapse: collapse;
@@ -11,95 +12,82 @@
     margin-top: 20px;
 
     th, td {
-      padding: 12px;
+      padding: 8px;
       text-align: left;
       border: 1px solid #ddd;
       color: black;
       background-color: #f2f2f2; /* grigio chiaro */
-
-     &:nth-child(n+1) {  //
-       display: none;
-     }
     }
 
     th {
       font-weight: bold;
-      background-color: khaki;
+      background-color: white;
+      color: rgb(228, 91, 91);
+      text-shadow: 0cqmin;
     }
 
-    .quote{
+    .quote {
       color: blue;
       font-weight: bold;
       text-shadow: 0cqi;
       background-color: rgb(207, 207, 207);
-    }
-
-    .quote:hover {
-      background-color: #78ca1b;
+      text-align: center;
       cursor: pointer;
+
+      &:hover {
+        background-color: #78ca1b;
+        .odd {
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+      }
     }
 
-    .quote:hover .odd {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-    .squadre{
+    .squadre, .corsivo, .idPartita {
       font-weight: bold;
       background-color: rgb(207, 207, 207);
     }
-    .corsivo{
+
+    .corsivo {
       font-style: oblique;
-      background-color: rgb(207, 207, 207) ;
     }
+
     .idPartita {
-      background-color: khaki;
+      background-color: rgb(238, 232, 177);
     }
   }
 
-  @media (min-width: 360px)  {
+  @media (min-width: 360px) {
     .container {
       padding: 40px;
     }
 
-      table {
-        border-collapse: collapse;
-        width: 30%;
-        margin-top: 20px;
+    table {
+      border-collapse: collapse;
+      width: 30%;
+      margin-top: 20px;
 
-        th:nth-child(3), td:nth-child(3),
-        th:nth-child(4), td:nth-child(4),
-        th:nth-child(6), td:nth-child(6),
-        th:nth-child(7), td:nth-child(7),
-        th:nth-child(8), td:nth-child(8) {
-          display: table-cell;
-        }
-      }
-  @media (min-width: 470px)  {
-
-      table {
-        border-collapse: collapse;
-        width: 30%;
-        margin-top: 20px;
-
-        th:nth-child(1), td:nth-child(1),
-        th:nth-child(2), td:nth-child(2),
-        th:nth-child(3), td:nth-child(3),
-        th:nth-child(4), td:nth-child(4),
-        th:nth-child(5), td:nth-child(5),
-        th:nth-child(6), td:nth-child(6),
-        th:nth-child(6), td:nth-child(6),
-        th:nth-child(7), td:nth-child(7),
-        th:nth-child(8), td:nth-child(8),{
-          display: table-cell;
-        }
+      th:nth-child(n+2), td:nth-child(n+2),
+      th:nth-child(n+3), td:nth-child(n+3),
+      th:nth-child(n+6), td:nth-child(n+6),
+      th:nth-child(n+7), td:nth-child(n+7),
+      th:nth-child(n+8), td:nth-child(n+8) {
+        display: table-cell;
       }
     }
   }
+
+  @media (min-width: 470px) {
+    table {
+      border-collapse: collapse;
+      width: 30%;
+      margin-top: 20px;
+
+      th:nth-child(-n+8), td:nth-child(-n+8) {
+        display: table-cell;
+      }
+    }
+  }
+
+
 }
-
-
-
-
-
-
-

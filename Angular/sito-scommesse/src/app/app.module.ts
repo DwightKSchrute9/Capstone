@@ -27,6 +27,9 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AsideComponent } from './aside/aside.component';
 import { BannerComponent } from './banner/banner.component';
+import { CardsComponent } from './cards/cards.component';
+
+
 
 
 
@@ -59,7 +62,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     AsideComponent,
     BetComponent,
-    BannerComponent
+    BannerComponent,
+    CardsComponent,
 
 
   ],
@@ -80,7 +84,10 @@ const appRoutes: Routes = [
     FormsModule,
     FormsModule, // Aggiungi FormsModule
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+
+
 
 
 

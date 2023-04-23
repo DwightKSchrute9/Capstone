@@ -6,12 +6,7 @@
   </button>
   <span>Benvento in CatBet</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button aria-label="Favorite" (click)="onFavoriteClick()">
-    <mat-icon [ngClass]="{ 'favorite-icon': isFavorite, 'favorite-border-icon': !isFavorite }">favorite</mat-icon>
-  </button>
-  <button mat-icon-button aria-label="Share" (click)="onShareClick()">
-    <mat-icon>share</mat-icon>
-  </button>
+
   <span class="example-spacer"></span>
   <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
     <mat-icon>account_circle</mat-icon>

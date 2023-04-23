@@ -1,31 +1,29 @@
 <div class="container">
-  <table class="table table-striped table-bordered mx-auto">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Data</th>
-        <th>Squadra di casa</th>
-        <th>Squadra ospite</th>
-        <th>Stadio</th>
-        <th>Quota casa</th>
-        <th>Quota ospite</th>
-        <th>Quota pareggio</th>
-      </tr>
-    </thead>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
 
-    <tbody>
-      <tr *ngFor="let match of matches">
-        <td class="idPartita">{{ match.id }}</td>
-        <td class="corsivo">{{ match.date }}</td>
-        <td class="squadre">{{ match.homeTeam }}</td>
-        <td class="squadre">{{ match.awayTeam }}</td>
-        <td class="corsivo">{{ match.stadium }}</td>
-        <td class="quote" (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
-        <td class= "quote"(click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
-        <td class="quote"(click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
-      </tr>
-    </tbody>
-  </table>
+          <th>Squadra di casa</th>
+          <th>Squadra ospite</th>
+          
+          <th class="d-none d-md-table-cell">1</th>
+          <th class="d-none d-md-table-cell">2</th>
+          <th class="d-none d-md-table-cell">X</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let match of matches">
+
+          <td class="squadre">{{ match.homeTeam }}</td>
+          <td class="squadre">{{ match.awayTeam }}</td>
+
+          <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
+          <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
+          <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
