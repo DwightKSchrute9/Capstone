@@ -14,6 +14,7 @@ export class MatchesComponent implements OnInit {
   matches: Match[] = [];
 
   @Output() oddSelected = new EventEmitter<DoubleRange>();
+  @Output() closeList = new EventEmitter<void>();
 
   constructor(private matchesService: MatchesService, private cartService: CartService) { }
 
@@ -26,15 +27,33 @@ export class MatchesComponent implements OnInit {
   onOddClick(odd: number) {
     this.oddSelected.emit(odd);
   }
+  toggleSublist(event: MouseEvent): void {
+    event.preventDefault();
+    const sublist = (event.currentTarget as HTMLElement).nextElementSibling;
+    if (sublist) {
+      sublist.classList.toggle('show');
+    }
+  }
 
   ngOnInit(): void {
     this.matchesService.getMatches()
       .subscribe((matches) => {
         this.matches = matches;
       });
+
+    const showListButton = document.querySelector('.show-list-button') as HTMLElement;
+    const listContainer = document.querySelector('.list-container') as HTMLElement;
+
+    showListButton.addEventListener('click', () => {
+      listContainer.style.display = 'block';
+      showListButton.style.display = 'none';
+    });
+
+    listContainer.addEventListener('click', (event) => {
+      if (event.target === listContainer) {
+        listContainer.style.display = 'none';
+        showListButton.style.display = 'block';
+      }
+    });
   }
 }
-
-
-
-

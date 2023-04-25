@@ -1,20 +1,21 @@
 .navbar {
-  background-color: #1b1717;
+  background-color:orange;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem 2rem;
-  height: 16vh;
+  padding: 2rem 3rem;
+  height: 15vh;
+  border-radius: 20px;
 
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1b1717;
+    background-color: orange
   }
 
   .navbar-brand {
     font-size: 3.5rem;
-    color:white;
+    color:black;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Bangers';
@@ -80,6 +81,7 @@
       width: 100%;
       max-width: 150px;
       padding: 8px;
+      
 
 
       &:hover {
@@ -134,28 +136,9 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container {
-  background-color: #152238; // Sostituisci con il colore di sfondo desiderato
-  color: #fff; // Sostituisci con il colore del testo desiderato
+  background-color: rgb(141, 128, 128); // Sostituisci con il colore di sfondo desiderato
+  color: black; // Sostituisci con il colore del testo desiderato
   padding: 20px;
 
   h3 {

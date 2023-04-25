@@ -1,14 +1,20 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 50px;
-  margin: 5px;
 
-  }
-  
+
   table {
     border-collapse: collapse;
+
+    &:hover {
+
+      font-size: 1.2em;
+      font-weight: bold;
+
+
+    }
+
+    img{
+      width: 30px;
+      height: 30px;
+    }
 
   }
   td, thead{
@@ -24,10 +30,7 @@
     font-weight: bold;
     &:hover {
       background-color: #78ca1b;
-      .odd {
-        font-size: 1.2em;
-        font-weight: bold;
-      }
+
     }
   }
 
@@ -52,9 +55,46 @@
 
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
 
 
+.card-container {
+  width: 98%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  align-items: center;
+  }
+
+  .cards-wrapper {
+  display: inline-block;
+  }
+
+  .example-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 320px;
+  margin-right: 20px;
+  /* aggiungere altri stili CSS per le cards se necessario */
+  }
+
+  .controls {
+  margin-top: 20px;
+  }
+
+  .prev-button, .next-button {
+  background-color: #ddd;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  }
+
+  .prev-button:hover, .next-button:hover {
+  background-color: #ccc;
+  }
+
+  .prev-button {
+  float: left;
+  }
+
+  .next-button {
+  float: right;
+  }

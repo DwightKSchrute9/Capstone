@@ -1,31 +1,4 @@
-<!--DA ELIMINARE   <main class="container">
-  <section class="row mt-4">
-    <div class="col-md-4">
 
-    </div>
-    <div class="col-md-8">
-      <div class="card bg-light">
-        <div class="card-body">
-          <h3 class="card-title">Quote del giorno</h3>
-          <hr>
-
-
-          app-aside></app-aside
-
-                app-matches></app-matches
-
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="row mt-4">
-    <div class="col-md-3">
-
-
-
-    </div>
-  </section>
-</main>-->
 
 
 <!--da modificare -->
@@ -74,12 +47,21 @@
     </div>
   </nav>
 
-  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
-    <app-cards fxFlex.lt-md="100" fxFlex.gt-md="20"></app-cards>
-    <app-aside fxFlex.lt-md="100" fxFlex.gt-md="20"></app-aside>
-    <app-matches fxFlex.lt-md="100" fxFlex.gt-md="80"></app-matches>
 
+
+
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+
+    <app-cards fxFlex.lt-md="100" fxFlex.gt-md="20"></app-cards>
+    <app-cards fxFlex.lt-md="100" fxFlex.gt-md="20"></app-cards>
+
+
+
+    <app-matches fxFlex.lt-md="100" fxFlex.gt-md="80"></app-matches>
+    <app-aside fxFlex.lt-md="20" fxFlex.gt-md="20"></app-aside>
   </div>
+
+
 
 </main>
 

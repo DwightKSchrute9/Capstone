@@ -1,10 +1,9 @@
-<div class="register-container">
+<div class="register-container" (click)="onClickOutsideModal()">
   <div class="register-form">
     <h2>Register</h2>
     <button type="button" class="close" (click)="closeModal()">&times;</button>
-    <app-register *ngIf="showRegisterModal" (close)="closeRegisterModal()"></app-register>
 
-    <form (ngSubmit)="onSubmit()" *ngIf="!isSubmitting">
+    <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Name:</label>
         <input type="text" class="form-control" [(ngModel)]="name" name="name" required>
@@ -25,9 +24,9 @@
         <label>Credit Card Number:</label>
         <input type="text" class="form-control" [(ngModel)]="creditCardNumber" name="creditCardNumber" required>
       </div>
-      <!-- form fields -->
-      <button type="submit" class="register-btn" (click)="closeModal()">Register</button>
+      <button type="submit" class="register-btn">Register</button>
     </form>
+
     <div *ngIf="isSubmitting">
       <p>Processing...</p>
     </div>
@@ -35,4 +34,3 @@
     <div *ngIf="showSuccessMessage" class="success-message">Registration successful!</div>
   </div>
 </div>
-

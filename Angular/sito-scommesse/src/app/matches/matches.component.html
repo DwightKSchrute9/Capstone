@@ -1,29 +1,75 @@
-<div class="container">
-  <div class="table-responsive">
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
+<!--Lista Laterale a scomparsa-->
 
-          <th>Squadra di casa</th>
-          <th>Squadra ospite</th>
-          
-          <th class="d-none d-md-table-cell">1</th>
-          <th class="d-none d-md-table-cell">2</th>
-          <th class="d-none d-md-table-cell">X</th>
-        </tr>
-      </thead>
+<div class="list-container">
 
-      <tbody>
-        <tr *ngFor="let match of matches">
 
-          <td class="squadre">{{ match.homeTeam }}</td>
-          <td class="squadre">{{ match.awayTeam }}</td>
-
-          <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
-          <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
-          <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>In evidenza</h2>
+  <ul class="main-list">
+    <li>
+      <a href="#" (click)="toggleSublist($event)">
+        Calcio
+        <span class="arrow">&#9658;</span>
+      </a>
+      <ul class="sublist">
+        <li>Champions League</li>
+        <li>Europa League</li>
+        <li>Europa Conference League</li>
+        <li>Serie A</li>
+        <li>Serie B</li>
+        <li>Coppa Italia</li>
+        <li>Premier League</li>
+        <li>La Liga</li>
+        <li>Bundesliga</li>
+        <li>Ligue 1</li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" (click)="toggleSublist($event)">
+        Basket
+        <span class="arrow">&#9658;</span>
+      </a>
+      <ul class="sublist">
+        <li>NBA</li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" (click)="toggleSublist($event)">
+        Baseball
+        <span class="arrow">&#9658;</span>
+      </a>
+      <ul class="sublist">
+        <li>MLB</li>
+      </ul>
+    </li>
+  </ul>
   </div>
+
+
+<!--Tabella Matches-->
+
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Squadra di casa</th>
+        <th>Squadra ospite</th>
+        <th class="d-none d-md-table-cell">1</th>
+        <th class="d-none d-md-table-cell">2</th>
+        <th class="d-none d-md-table-cell">X</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let match of matches">
+        <td class="squadre">{{ match.homeTeam }}</td>
+        <td class="squadre">{{ match.awayTeam }}</td>
+        <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
+        <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
+        <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<div class="show-list-button">Mostra lista</div>
+
+
