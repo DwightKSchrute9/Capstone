@@ -2,6 +2,8 @@ package com.Capstone_BET.SpringBoot_SpringSecurity.entity;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,6 +32,7 @@ public class BetElement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bet_id", nullable = false)
 	private Bet bet;
