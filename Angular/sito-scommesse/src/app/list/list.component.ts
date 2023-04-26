@@ -9,6 +9,7 @@ import { Bet } from '../bet/bet.model';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  isOpen: boolean = false;
 
   bets: Bet[] = [];
 
@@ -29,6 +30,9 @@ export class ListComponent implements OnInit {
     if (sublist) {
       sublist.classList.toggle('show');
     }
+  }
+  toggleList(): void {
+    this.isOpen = !this.isOpen;
   }
 
   closeList(): void {

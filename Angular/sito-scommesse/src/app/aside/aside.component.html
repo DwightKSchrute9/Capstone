@@ -22,7 +22,7 @@
       <input type="number" id="bet-amount" [(ngModel)]="cartService.betAmount" required>
       </div>
     <button class="bet-btn" (click)="placeBet()" [disabled]="!isLoggedIn() || showErrorMessage">Scommetti</button>
-    <p class="bet-error" *ngIf="showErrorMessage">Hai bisogno di registrarti per poter scommettere</p>
+    <p class="bet-error" *ngIf="showErrorMessage">Hai bisogno di registrarti per poter scommettere !</p>
   </div>
   <div class="bet-content" *ngIf="cartService.bets.length > 0">
     <p class="bet-moltiplicatore">Moltiplicatore: {{moltiplicatore()}}</p>

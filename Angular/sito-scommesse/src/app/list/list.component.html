@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container" [class.open]="isOpen">
+  <button (click)="toggleList()">Scommesse</button>
   <table>
     <thead>
       <tr>
