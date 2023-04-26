@@ -5,6 +5,16 @@
   height: 15vh;
   border-radius: 20px;
 
+  button{
+   background-color: #0c1d2d;
+   border-radius: 10%;
+   color: white;
+   &:hover {
+    background-color: #8caf0e;
+    padding: 10px;
+  }
+  }
+
 
   .container {
     display: flex;
@@ -81,7 +91,7 @@
       width: 100%;
       max-width: 150px;
       padding: 8px;
-      
+
 
 
       &:hover {

@@ -1,0 +1,20 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>match</th>
+        <th>betType</th>
+        <th class="d-none d-md-table-cell">odd</th>
+ 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bet of bets">
+        <td class="squadre">{{ bet.match}}</td>
+        <td class="squadre">{{ bet.betType }}</td>
+        <td class="quote col-4 col-md d-none d-md-table-cell"><span class="odd">{{ bet.odd}}</span></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
