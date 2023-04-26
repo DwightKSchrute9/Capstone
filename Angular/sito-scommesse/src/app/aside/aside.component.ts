@@ -18,6 +18,7 @@ export class AsideComponent {
   selectedBet: any;
   showErrorMessage: boolean = false;
 
+
   constructor(public cartService: CartService, public authService: AuthenticationService, private http: CustomHttpClient) {}
 
   updateSelectedBet(bet: any) {
@@ -34,6 +35,7 @@ export class AsideComponent {
         console.log('Scommessa effettuata con successo');
         // qui puoi aggiornare la UI del componente per mostrare un messaggio di conferma o aggiornare i dati della schedina
       }, (error) => {
+        this.showErrorMessage = true;
         console.log('Errore durante l\'invio della scommessa', error);
         // qui puoi aggiornare la UI del componente per mostrare un messaggio di errore
       });
@@ -53,7 +55,11 @@ export class AsideComponent {
     */
   }
 
-
+  checkIfLoggedIn(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.showErrorMessage = true;
+    }
+  }
 
 
   isLoggedIn() {

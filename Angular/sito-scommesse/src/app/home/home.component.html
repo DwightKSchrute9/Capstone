@@ -1,16 +1,16 @@
 
 
 
-<!--da modificare -->
+<!--da modificare-->
 <main class="container" fxLayout="column" fxLayoutAlign="start center">
   <app-login *ngIf="isLoginOpen" (close)="onCloseLogin()"></app-login>
-  <app-register *ngIf="isRegisterOpen"></app-register>
+  <app-register *ngIf="isRegisterOpen" (close)="onCloseRegister()"></app-register>
 
   <nav class="navbar" [ngClass]="{'navbar-dark bg-dark': isDarkMode, 'navbar-light bg-light': !isDarkMode}">
     <div class="container">
       <a class="navbar-brand" href="#">CatBet</a>
 
-    
+
 
       <div class="collapse navbar-collapse" id="navbarNav" fxLayoutAlign="center center">
         <ul class="navbar-nav">
@@ -25,11 +25,11 @@
           <ul class="navbar-nav">
             <li class="nav-item" *ngIf="!isUserLoggedIn">
 
-              <button class="btn btn-outline-light" (click)="onLoginButtonClick()">ENTRA</button>
+              <button id="button_accedi"class="btn btn-outline-light" (click)="onLoginButtonClick()">ACCEDI</button>
             </li>
             <li class="nav-item" *ngIf="!isUserLoggedIn">
 
-              <button class="btn btn-sm btn-outline-primary ml-2" (click)="onRegisterButtonClick()">REGISTRATI</button>
+              <button id="button_registrati"class="btn btn-sm btn-outline-primary ml-2" (click)="onRegisterButtonClick()">REGISTRATI</button>
             </li>
             <li class="nav-item" *ngIf="isUserLoggedIn">
 
@@ -51,7 +51,7 @@
   <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
 
     <app-cards fxFlex.lt-md="100" fxFlex.gt-md="20"></app-cards>
-    <app-cards fxFlex.lt-md="100" fxFlex.gt-md="20"></app-cards>
+
 
 
 

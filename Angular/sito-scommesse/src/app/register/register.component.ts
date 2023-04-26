@@ -29,7 +29,7 @@ export class RegisterComponent {
       }, (error) => {
         console.log(error);
         this.isSubmitting = false;
-        this.errorMessage = "L'utente si è registrato con sucesso, effettua il login";
+        this.errorMessage = "L'utente si è registrato con successo, effettua il login";
       });
   }
 
@@ -39,5 +39,9 @@ export class RegisterComponent {
 
   closeModal(): void {
     this.close.emit();
+  }
+
+  onCloseModalClick(): void {
+    this.closeModal();
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,8 @@ export class LoginComponent {
   errorMessage: string = '';
   isLoggedIn: boolean = false;
 
+  @Output() close = new EventEmitter<void>();
+
   constructor(
     public authService: AuthenticationService,
     private router: Router
@@ -26,7 +28,7 @@ export class LoginComponent {
             console.log(login);
             // naviga all'URL "/utente"
             this.router.navigate(['/utente']);
-           
+
 
           } else {
             // visualizza un messaggio di errore
@@ -39,6 +41,10 @@ export class LoginComponent {
           console.error(error);
         }
       );
+  }
+
+  closeModal(): void {
+    this.close.emit();
   }
 }
 

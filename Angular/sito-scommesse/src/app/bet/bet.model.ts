@@ -1,10 +1,13 @@
+import { Utente } from "../utente/utente.model";
+import { BetElement } from "./bet-element.model";
+
 export interface Bet {
   id: number;
-  user_id: number;
-  betStatus: string;
+  odd: number;
+  user: Utente;
+  betElements: BetElement[];
   betAmount: number;
   winAmount: number;
+  betStatus: string;
   betResult: string;
-  odd: number;
-  betElement:string;
 }

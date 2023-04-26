@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BetService } from '../bet.service';
 import { BetElement } from '../bet/bet-element.model';
+import { Bet } from '../bet/bet.model';
 
 @Component({
   selector: 'app-list',
@@ -9,13 +10,13 @@ import { BetElement } from '../bet/bet-element.model';
 })
 export class ListComponent implements OnInit {
 
-  bets: BetElement[] = [];
+  bets: Bet[] = [];
 
   constructor(private betService: BetService) { }
 
   ngOnInit(): void {
     this.betService.getBetsFromDatabase()
-      .subscribe((bets: BetElement[]) => {
+      .subscribe((bets: Bet[]) => {
         this.bets = bets;
       });
   }

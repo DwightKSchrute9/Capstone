@@ -14,14 +14,10 @@ export class BetComponent {
   @Input() bet!: BetElement;
   @Output() betSelected = new EventEmitter<any>();
   @Output() onRemoveBet = new EventEmitter<number>();
-  bets: BetElement[] = [];
 
   constructor(private betService: BetService,private http: CustomHttpClient) {}
 
   ngOnInit() {
-    this.betService.getBetsFromDatabase().subscribe(bets => {
-      this.bets = bets;
-    });
   }
 
   onOddClick(matchId: number, odd: number, betType: string) {

@@ -55,8 +55,9 @@
         <th>Squadra di casa</th>
         <th>Squadra ospite</th>
         <th class="d-none d-md-table-cell">1</th>
-        <th class="d-none d-md-table-cell">2</th>
         <th class="d-none d-md-table-cell">X</th>
+        <th class="d-none d-md-table-cell">2</th>
+
       </tr>
     </thead>
     <tbody>
@@ -64,8 +65,9 @@
         <td class="squadre">{{ match.homeTeam }}</td>
         <td class="squadre">{{ match.awayTeam }}</td>
         <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'HOME', match.homeOdd)"><span class="odd">{{ match.homeOdd }}</span></td>
-        <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
         <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'DRAW', match.drawOdd)"><span class="odd">{{ match.drawOdd }}</span></td>
+        <td class="quote col-4 col-md d-none d-md-table-cell" (click)="addToCart(match, 'AWAY', match.awayOdd)"><span class="odd">{{ match.awayOdd }}</span></td>
+
       </tr>
     </tbody>
   </table>

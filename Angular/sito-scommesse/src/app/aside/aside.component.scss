@@ -58,6 +58,12 @@
       font-size: 20px;
       background-color: rgb(14, 53, 14);
       border-radius: 8px;
+      &:hover{
+        background-color: green;
+        box-shadow: 0 9px #474242;
+        transform: translateY(6px);
+        border-radius: 15px;
+      }
 
     }
     #bet-amount{
