@@ -35,6 +35,7 @@ public class BetElement {
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bet_id", nullable = false)
+	@JsonIgnore
 	private Bet bet;
 	
 	@ManyToOne
