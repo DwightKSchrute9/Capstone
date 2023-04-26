@@ -6,6 +6,12 @@
     "axe/parsing": "off",
     "axe/name-role-value": "off",
     "axe/forms": "off",
-    "button-type": "off"
+    "button-type": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ]
   }
 }
