@@ -36,7 +36,7 @@
   </div>
 </div>-->
 
-<div class="register-container" (click)="closeModal()">
+<div class="register-container" >
 
 
 
@@ -83,7 +83,7 @@
       </svg>
     </label>
 
-    <input id="username" class='lf--input' placeholder='Username' type='username'[(ngModel)]="username" name="username" required>
+    <input id="email" class='lf--input' placeholder='E-mail' type='email'[(ngModel)]="email" name="email" required>
   </div>
 
   <div class="flex-row">
@@ -93,10 +93,11 @@
       </svg>
     </label>
 
-    <input id="username" class='lf--input' placeholder='Username' type='username'[(ngModel)]="username" name="username" required>
+    <input id="creditCard" class='lf--input' placeholder='CreditCard ' type='creditCard'[(ngModel)]="creditCardNumber" name="creditCard" required>
   </div>
 
-  <input type="submit" class='lf--submit' value='LOGIN'>
+  <input type="submit" class='lf--submit' value='REGISTER'>
+ 
 </form>
 
 </div>

@@ -38,6 +38,7 @@ export class AsideComponent {
         this.showErrorMessage = true;
         console.log('Errore durante l\'invio della scommessa', error);
         // qui puoi aggiornare la UI del componente per mostrare un messaggio di errore
+       
       });
     }
   }

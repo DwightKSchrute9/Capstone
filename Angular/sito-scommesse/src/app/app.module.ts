@@ -28,7 +28,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AsideComponent } from './aside/aside.component';
 import { BannerComponent } from './banner/banner.component';
 import { CardsComponent } from './cards/cards.component';
-import { OwlModule } from 'ngx-owl-carousel';
 import { ListComponent } from './list/list.component';
 
 
@@ -93,7 +92,7 @@ const appRoutes: Routes = [
     FormsModule, // Aggiungi FormsModule
     ReactiveFormsModule,
     HttpClientModule,
-    OwlModule
+
 
 
 
