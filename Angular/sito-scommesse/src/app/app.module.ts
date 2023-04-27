@@ -29,6 +29,7 @@ import { AsideComponent } from './aside/aside.component';
 import { BannerComponent } from './banner/banner.component';
 import { CardsComponent } from './cards/cards.component';
 import { ListComponent } from './list/list.component';
+import { ContattiComponent } from './contatti/contatti.component';
 
 
 
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
   { path: 'utente', component: UtenteComponent },
   { path: 'bet', component: BetComponent },
   { path: 'matches', component: MatchesComponent },
-  { path: 'animazione', component: AnimazioneComponent }
+  { path: 'animazione', component: AnimazioneComponent },
+  { path: 'contatti', component: ContattiComponent },
 
 ];
 
@@ -70,6 +72,7 @@ const appRoutes: Routes = [
     BannerComponent,
     CardsComponent,
     ListComponent,
+    ContattiComponent,
 
 
 
