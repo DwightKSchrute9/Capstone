@@ -23,6 +23,7 @@
       </div>
     <button class="bet-btn" (click)="placeBet()" [disabled]="!isLoggedIn() || showErrorMessage">Scommetti</button>
     <p class="bet-error" *ngIf="showErrorMessage">Hai bisogno di registrarti per poter scommettere !</p>
+    <p class="bet-success" *ngIf="showSuccessMessage">Scommessa effettuata con successo ! Controlla la lista scommesse</p>
   </div>
   <div class="bet-content" *ngIf="cartService.bets.length > 0">
     <p class="bet-moltiplicatore">Moltiplicatore: {{moltiplicatore()}}</p>
@@ -30,4 +31,6 @@
   </div>
 
 </aside>
+
+<img src="https://www.beforeyoubet.com.au/sites/default/files/tab-join-banner.jpg" alt="banner">
 
